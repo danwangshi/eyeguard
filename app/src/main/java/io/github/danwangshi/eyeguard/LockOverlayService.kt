@@ -7,13 +7,13 @@ import android.graphics.PixelFormat
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.provider.Settings
-import android.speech.tts.TextToSpeech
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -21,14 +21,13 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
-import java.util.Locale
 
 /**
  * 锁定覆盖层服务
  * 显示全屏悬浮窗，拦截所有触摸事件
  * 注意：光线传感器监听由 LightMonitorService 统一管理，本服务不再独立注册
  */
-class LockOverlayService : Service(), TextToSpeech.OnInitListener {
+class LockOverlayService : Service() {
 
     companion object {
         private const val TAG = "LockOverlayService"
@@ -88,9 +87,8 @@ class LockOverlayService : Service(), TextToSpeech.OnInitListener {
     private var cameraId: String? = null
     private var torchCallback: CameraManager.TorchCallback? = null
 
-    // TTS 语音播报
-    private var textToSpeech: TextToSpeech? = null
-    private var ttsInitialized = false
+    // 语音播报 MediaPlayer（播放 res/raw 音频文件）
+    private var mediaPlayer: MediaPlayer? = null
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -156,31 +154,14 @@ class LockOverlayService : Service(), TextToSpeech.OnInitListener {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
-    /**
-     * TextToSpeech 初始化回调
-     */
-    override fun onInit(status: Int) {
-        ttsInitialized = (status == TextToSpeech.SUCCESS)
-        if (ttsInitialized) {
-            textToSpeech?.language = Locale.CHINESE
-            AppLog.d(TAG, "TTS 初始化成功")
-        } else {
-            AppLog.w(TAG, "TTS 初始化失败: status=$status")
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         AppLog.d(TAG, "onDestroy")
         removeLockOverlay()
-        // 释放 TTS 资源
-        textToSpeech?.let {
-            it.stop()
-            it.shutdown()
-        }
-        textToSpeech = null
-        ttsInitialized = false
-        AppLog.d(TAG, "TTS 资源已释放")
+        // 释放 MediaPlayer 资源
+        mediaPlayer?.release()
+        mediaPlayer = null
+        AppLog.d(TAG, "MediaPlayer 资源已释放")
     }
 
     /**
@@ -237,9 +218,6 @@ class LockOverlayService : Service(), TextToSpeech.OnInitListener {
 
             // 设置按钮点击事件
             setupButtons()
-
-            // 初始化 TTS 语音播报（首次创建遮罩时初始化一次，后续复用）
-            textToSpeech = TextToSpeech(this, this)
         } else {
             AppLog.d(TAG, "复用已缓存的锁定覆盖层")
         }
@@ -314,19 +292,10 @@ class LockOverlayService : Service(), TextToSpeech.OnInitListener {
                 openEmergencyDialer()
             }
 
-            // 中央卡片区域点击 → TTS 语音播报
+            // 中央卡片区域点击 → 语音播报（播放预置音频文件）
             view.findViewById<View>(R.id.card_container)?.setOnClickListener {
-                if (ttsInitialized) {
-                    AppLog.d(TAG, "卡片区域点击，触发语音播报")
-                    textToSpeech?.speak(
-                        "光线太暗，请开灯玩手机",
-                        TextToSpeech.QUEUE_FLUSH,
-                        null,
-                        "lock_tts"
-                    )
-                } else {
-                    AppLog.d(TAG, "TTS 未就绪，跳过语音播报")
-                }
+                AppLog.d(TAG, "卡片区域点击，触发语音播报")
+                playLockAudio()
             }
         }
     }
@@ -421,6 +390,28 @@ class LockOverlayService : Service(), TextToSpeech.OnInitListener {
             }
         } catch (e: CameraAccessException) {
             AppLog.e(TAG, "手电筒操作失败", e)
+        }
+    }
+
+    /**
+     * 播放锁定提示语音
+     * 从预置音频文件播放，不依赖系统 TTS
+     */
+    private fun playLockAudio() {
+        try {
+            if (mediaPlayer == null) {
+                mediaPlayer = MediaPlayer.create(this, R.raw.lock_tts)
+            }
+            mediaPlayer?.let { mp ->
+                if (mp.isPlaying) {
+                    mp.seekTo(0)  // 如果正在播放，从头重播
+                } else {
+                    mp.start()
+                }
+                AppLog.d(TAG, "语音播报已播放")
+            }
+        } catch (e: Exception) {
+            AppLog.e(TAG, "语音播报失败", e)
         }
     }
 
