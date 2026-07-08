@@ -4,7 +4,7 @@
 
 一款 Android 护眼应用，通过光线传感器实时监测环境亮度，在暗光环境下**强制锁定**手机，防止损害视力；当光线恢复后自动解锁。
 
-> 技术栈：`Kotlin` · `Android SDK 34` · `AccessibilityService` · `Light Sensor` · `Foreground Service`
+> 技术栈：`Kotlin` · `Android SDK 34` · `minSdk 23 (6.0)` · `AccessibilityService` · `Light Sensor` · `Foreground Service`
 
 ## 功能特性
 
@@ -162,25 +162,27 @@
 
 ## 系统要求
 
-- Android 6.0+ (API 23+)
+- Android 6.0 及以上 (API 23+)
+- **已验证兼容至 Android 14+**
 - 支持光线传感器的设备
 
 ## 权限说明
 
+所有权限均会在首次启动或点击「运行」时主动请求，无需用户手动翻找设置：
 
-| 权限                                   | 用途                                  |
-| -------------------------------------- | ------------------------------------- |
-| `SYSTEM_ALERT_WINDOW`                  | 显示悬浮窗锁定遮罩层                  |
-| `BIND_ACCESSIBILITY_SERVICE`           | 检测窗口变化，防止用户切换到其他应用  |
-| `FOREGROUND_SERVICE`                   | 保持后台光线监测服务运行              |
-| `FOREGROUND_SERVICE_SPECIAL_USE`       | 前台服务类型声明（Android 14+）       |
-| `POST_NOTIFICATIONS`                   | 显示前台服务通知                      |
-| `WAKE_LOCK`                            | 保持 CPU 唤醒，确保传感器数据正常投递 |
-| `CAMERA`                               | 控制手电筒（闪光灯）                  |
-| `CALL_PHONE`                           | 打开紧急拨号界面                      |
-| `READ_PHONE_STATE`                     | 监听通话状态（来电/去电）             |
-| `RECEIVE_BOOT_COMPLETED`               | 接收开机广播，支持自启动              |
-| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | 请求忽略电池优化，保持后台稳定运行    |
+| 权限                                   | 用途                                  | 请求方式                     |
+| -------------------------------------- | ------------------------------------- | ---------------------------- |
+| `SYSTEM_ALERT_WINDOW`                  | 显示悬浮窗锁定遮罩层                  | 引导页跳转设置               |
+| `BIND_ACCESSIBILITY_SERVICE`           | 检测窗口变化，防止用户切换到其他应用  | 引导页跳转设置               |
+| `POST_NOTIFICATIONS`                   | 显示前台服务通知（Android 13+）       | 点击「运行」时自动请求       |
+| `CAMERA`                               | 控制手电筒（闪光灯）                  | 点击「运行」时自动请求       |
+| `READ_PHONE_STATE`                     | 监听通话状态（来电/去电）             | 点击「运行」时自动请求       |
+| `FOREGROUND_SERVICE`                   | 保持后台光线监测服务运行              | 安装时自动授予               |
+| `FOREGROUND_SERVICE_SPECIAL_USE`       | 前台服务类型声明（Android 14+）       | 安装时自动授予               |
+| `WAKE_LOCK`                            | 保持 CPU 唤醒，确保传感器数据正常投递 | 安装时自动授予               |
+| `CALL_PHONE`                           | 打开紧急拨号界面                      | 安装时自动授予               |
+| `RECEIVE_BOOT_COMPLETED`               | 接收开机广播，支持自启动              | 安装时自动授予               |
+| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | 请求忽略电池优化，保持后台稳定运行    | 设置指引页跳转               |
 
 ## 项目结构
 
