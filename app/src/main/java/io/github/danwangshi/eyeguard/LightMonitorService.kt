@@ -64,6 +64,7 @@ class LightMonitorService : Service(), SensorEventListener {
 
     private var currentThreshold = 0f
     private var currentLux = 0f
+    private var hasSensorData = false  // 是否已收到首次传感器数据
     private var isLocked = false
 
     // 防抖状态机
@@ -89,6 +90,8 @@ class LightMonitorService : Service(), SensorEventListener {
     
     // 冷却期内的光线状态记录
     private var lightBelowThresholdDuringCooldown = false
+    private var cooldownAboveThresholdCount = 0  // 冷却期内连续高于阈值的采样次数
+    private val COOLDOWN_EARLY_EXIT_COUNT = 3  // 连续3次高于阈值则提前退出冷却
 
     private val binder = LocalBinder()
 
@@ -109,8 +112,10 @@ class LightMonitorService : Service(), SensorEventListener {
     private var lastNotifiedLux = -1
     private var lastNotifiedLocked = false
 
-    // 传感器采样间隔（微秒）：500ms，环境光变化缓慢，无需高频采样
-    private val SENSOR_SAMPLING_INTERVAL_US = 500 * 1000
+    // 传感器采样间隔（微秒）：2000ms，环境光变化缓慢，无需高频采样
+    private val SENSOR_SAMPLING_INTERVAL_US = 2000 * 1000
+    // 软件节流：传感器硬件可能忽略采样间隔建议，需在软件层限制处理频率
+    private var lastProcessedSensorTime = 0L
 
     inner class LocalBinder : Binder() {
         fun getService(): LightMonitorService = this@LightMonitorService
@@ -168,6 +173,7 @@ class LightMonitorService : Service(), SensorEventListener {
     private fun startMonitoring() {
         AppLog.d(TAG, "开始光线监测，阈值: $currentThreshold lux")
         isRunning = true
+        hasSensorData = false  // 重置传感器数据标记，等待首次数据
 
         // 检查是否有光线传感器
         if (lightSensor == null) {
@@ -331,7 +337,7 @@ class LightMonitorService : Service(), SensorEventListener {
     /**
      * 设置电话状态监听器
      */
-    private fun setupPhoneStateListener() {
+    internal fun setupPhoneStateListener() {
         // 检查是否有电话状态权限
         if (checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.w(TAG, "没有READ_PHONE_STATE权限，无法监听通话状态")
@@ -457,7 +463,15 @@ class LightMonitorService : Service(), SensorEventListener {
      */
     override fun onSensorChanged(event: SensorEvent) {
         if (event.sensor.type == Sensor.TYPE_LIGHT) {
+            // 软件节流：跳过过于频繁的传感器事件
+            val now = event.timestamp / 1_000_000  // 纳秒转毫秒
+            if (hasSensorData && now - lastProcessedSensorTime < 2000) {
+                return
+            }
+            lastProcessedSensorTime = now
+
             currentLux = event.values[0]
+            hasSensorData = true  // 标记已收到有效传感器数据
 
             // 安全网：检查屏幕是否已关闭，如果是则主动暂停监测
             // 防止 SCREEN_OFF 广播未收到导致息屏后仍然运行状态机
@@ -575,13 +589,23 @@ class LightMonitorService : Service(), SensorEventListener {
      * COOLDOWN 状态处理：强制冷却，忽略所有光线变化，但记录光线状态
      */
     private fun handleCooldownState() {
-        // 冷却期内虽然不响应，但记录光线状态
+        // 冷却期内记录光线状态，连续高于阈值则提前退出
         if (currentLux < currentThreshold) {
             lightBelowThresholdDuringCooldown = true
-            AppLog.stateMachine("[COOLDOWN] 冷却中，记录光线状态: 低于阈值")
+            cooldownAboveThresholdCount = 0
         } else {
-            lightBelowThresholdDuringCooldown = false
-            AppLog.stateMachine("[COOLDOWN] 冷却中，记录光线状态: 高于阈值")
+            cooldownAboveThresholdCount++
+            if (cooldownAboveThresholdCount >= COOLDOWN_EARLY_EXIT_COUNT) {
+                // 光线持续充足，提前结束冷却
+                AppLog.stateMachine("[COOLDOWN] 光线持续充足，提前结束冷却 → IDLE")
+                cooldownRunnable?.let {
+                    handler.removeCallbacks(it)
+                    cooldownRunnable = null
+                }
+                currentState = LightState.IDLE
+                checkLight()
+                return
+            }
         }
     }
 
@@ -610,6 +634,7 @@ class LightMonitorService : Service(), SensorEventListener {
         unlockDevice()
         currentState = LightState.COOLDOWN
         lightBelowThresholdDuringCooldown = false  // 重置冷却期光线状态记录
+        cooldownAboveThresholdCount = 0  // 重置连续高于阈值计数
         
         // 立即启动冷却倒计时（无缝衔接）
         cooldownRunnable = Runnable {
@@ -680,6 +705,12 @@ class LightMonitorService : Service(), SensorEventListener {
      * 检查锁定状态（无防抖，用于阈值更新等场景）
      */
     private fun checkLockState() {
+        // 未收到首次传感器数据前，不执行锁定判断
+        if (!hasSensorData) {
+            AppLog.d(TAG, "等待首次传感器数据，跳过锁定检查")
+            return
+        }
+
         // 息屏状态下不锁定，等用户亮屏解锁后再判断
         if (!isScreenOn) {
             AppLog.d(TAG, "息屏状态，跳过锁定检查")

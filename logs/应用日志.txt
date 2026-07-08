@@ -1,0 +1,1425 @@
+--------- beginning of main
+07-08 18:58:40.994 25916 25916 W Zygote  : mz_is_rooted false
+07-08 18:58:40.996 25916 25916 W libc    : Access denied finding property "persist.vendor.meizu.smart_zram"
+07-08 18:58:40.994 25916 25916 W main    : type=1400 audit(0.0:353919): avc:  denied  { read } for  name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=412 scontext=u:r:zygote:s0 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+07-08 18:58:41.004 25916 25916 I angshi.eyeguard: Late-enabling -Xcheck:jni
+07-08 18:58:41.022 25916 25916 E angshi.eyeguard: Unknown bits set in runtime_flags: 0x2000000
+07-08 18:58:41.022 25916 25916 I angshi.eyeguard: Using CollectorTypeCC GC.
+07-08 18:58:41.069 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10355; state: ENABLED
+07-08 18:58:41.069 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 242716250; UID 10355; state: ENABLED
+07-08 18:58:41.085 25916 25916 D EMS:ExceptionManager: Need bind server!
+07-08 18:58:41.086 25916 25916 D ServiceManagerUtils: Check service result is android.os.BinderProxy@336eac0
+07-08 18:58:41.088 25916 25916 D cutils-trace: [atrace_get_property] original flags: 0, ems flags: 0, ems_tags: 0
+07-08 18:58:41.092 25916 25916 W ziparchive: Unable to open '/data/app/~~LCB7TlJsPkklbrcGIz3llg==/io.github.danwangshi.eyeguard-paINe4Ii6Q6aEnKvE_4Ljg==/base.dm': No such file or directory
+07-08 18:58:41.092 25916 25916 W ziparchive: Unable to open '/data/app/~~LCB7TlJsPkklbrcGIz3llg==/io.github.danwangshi.eyeguard-paINe4Ii6Q6aEnKvE_4Ljg==/base.dm': No such file or directory
+07-08 18:58:41.219 25916 25916 D nativeloader: Configuring clns-4 for other apk /data/app/~~LCB7TlJsPkklbrcGIz3llg==/io.github.danwangshi.eyeguard-paINe4Ii6Q6aEnKvE_4Ljg==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~LCB7TlJsPkklbrcGIz3llg==/io.github.danwangshi.eyeguard-paINe4Ii6Q6aEnKvE_4Ljg==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/io.github.danwangshi.eyeguard
+07-08 18:58:41.233 25916 25916 I Perf    : Connecting to perf service.
+07-08 18:58:41.239 25916 25916 V GraphicsEnvironment: Currently set values for:
+07-08 18:58:41.239 25916 25916 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+07-08 18:58:41.239 25916 25916 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+07-08 18:58:41.240 25916 25916 V GraphicsEnvironment: ANGLE GameManagerService for io.github.danwangshi.eyeguard: false
+07-08 18:58:41.240 25916 25916 V GraphicsEnvironment: io.github.danwangshi.eyeguard is not listed in per-application setting
+07-08 18:58:41.240 25916 25916 V GraphicsEnvironment: Updatable production driver is not supported on the device.
+07-08 18:58:41.247 25916 25916 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-08 18:58:41.246 25916 25916 W angshi.eyeguard: type=1400 audit(0.0:353921): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=312 scontext=u:r:untrusted_app:s0:c99,c257,c512,c768 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0
+07-08 18:58:41.247 25916 25916 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-08 18:58:41.246 25916 25916 W angshi.eyeguard: type=1400 audit(0.0:353922): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=312 scontext=u:r:untrusted_app:s0:c99,c257,c512,c768 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0
+07-08 18:58:41.307 25916 25916 D LockAccessibilityService: 无障碍服务已连接
+07-08 18:58:46.864 25916 26013 D ProfileInstaller: Installing profile for io.github.danwangshi.eyeguard
+07-08 18:58:57.391 25916 25916 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+07-08 18:58:57.471 25916 25916 W angshi.eyeguard: Accessing hidden method Landroid/view/View;->computeFitSystemWindows(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z (unsupported, reflection, allowed)
+07-08 18:58:57.471 25916 25916 W angshi.eyeguard: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (unsupported, reflection, allowed)
+07-08 18:58:57.479 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 210923482; UID 10355; state: ENABLED
+07-08 18:58:57.569 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 171228096; UID 10355; state: ENABLED
+07-08 18:58:57.695 25916 25916 D MainActivity: 加载设置: threshold_value=4, debounce_enabled=true
+07-08 18:58:57.697 25916 25916 D MainActivity: 防抖开关切换: true
+07-08 18:58:57.727 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.MainActivity,delayUs:200000,addus:200000
+07-08 18:58:57.729 25916 25916 I Instrumentation: SmartScene callActivityOnResume isMonkey = false
+07-08 18:58:57.735 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10355; state: DISABLED
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: QUALCOMM build                   : 1a285a84ae, I2991b7e11e
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Build Date                       : 06/04/23
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: E031.41.03.36
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Local Branch                     :
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Remote Branch                    :
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Remote Branch                    :
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Reconstruct Branch               :
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Build Config                     : S P 14.1.4 AArch64
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+07-08 18:58:57.819 25916 26141 I AdrenoGLES-0: Driver Version                   : 0676.32
+07-08 18:58:57.826 25916 26141 I AdrenoGLES-0: PFP: 0x01740158, ME: 0x00000000
+07-08 18:58:57.839 25916 26141 I AdrenoUtils: <ReadGpuID:408>: Reading chip ID through GSL
+07-08 18:58:57.847 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:58:58.020 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / io.github.danwangshi.eyeguard.MainActivity
+07-08 18:58:58.973 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:58:58.973 25916 25916 D ContentCapture: ScanScreen
+07-08 18:58:58.985 25916 26239 D CompatibilityChangeReporter: Compat change id reported: 247079863; UID 10355; state: ENABLED
+07-08 18:58:58.988 25916 26239 D ContentCapture: updateCollectionAppInfoImpl time=3
+07-08 18:58:58.989 25916 26239 W ContentCapture: retractPickerResult failed : Permission Denial: not allowed to send broadcast com.meizu.picker.action.service.RETRACT_RESULT_V1 from pid=25916, uid=10355
+07-08 18:58:59.028 25916 25916 V ContentCapture: ACTION_UP
+07-08 18:58:59.028 25916 25916 D ContentCapture: checkClickAndCapture, voiceRecorder=disable, collection=disable
+07-08 18:58:59.049 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 147798919; UID 10355; state: ENABLED
+07-08 18:58:59.057 25916 25916 D LightMonitorService: onCreate
+07-08 18:58:59.069 25916 25916 W LightMonitorService: 没有READ_PHONE_STATE权限，无法监听通话状态
+07-08 18:58:59.069 25916 25916 D LightMonitorService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_START
+07-08 18:58:59.069 25916 25916 D LightMonitorService: 开始光线监测，阈值: 4.0 lux
+07-08 18:58:59.069 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:58:59.071 25916 25916 D CompatibilityChangeReporter: Compat change id reported: 160794467; UID 10355; state: ENABLED
+07-08 18:58:59.090 25916 25916 D LightMonitorService: WakeLock 已获取
+07-08 18:58:59.091 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.LightMonitorService,delayUs:500000,addus:500000
+07-08 18:58:59.094 25916 25916 D LightMonitorService: 屏幕状态广播接收器已注册
+07-08 18:58:59.099 25916 25916 D MainActivity: Service connected
+07-08 18:58:59.156 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.405 lux, 阈值: 4.0 lux
+07-08 18:58:59.157 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:58:59.161 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：27 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:58:59.336 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.405 lux, 阈值: 4.0 lux
+07-08 18:58:59.516 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.405 lux, 阈值: 4.0 lux
+07-08 18:58:59.697 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.405 lux, 阈值: 4.0 lux
+07-08 18:58:59.876 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.405 lux, 阈值: 4.0 lux
+07-08 18:59:00.058 25916 25916 D EyeGuard-Sensor: 环境光线变化: 15.660001 lux, 阈值: 4.0 lux
+07-08 18:59:00.059 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:00.062 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：15 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:00.236 25916 25916 D EyeGuard-Sensor: 环境光线变化: 13.635 lux, 阈值: 4.0 lux
+07-08 18:59:00.418 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.6625 lux, 阈值: 4.0 lux
+07-08 18:59:00.419 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:00.425 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：26 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:00.600 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:00.779 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:00.956 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:01.136 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:01.316 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:01.496 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:01.676 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:01.857 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.036 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.220 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.396 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.579 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.756 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:02.937 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:03.117 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:03.297 25916 25916 D EyeGuard-Sensor: 环境光线变化: 28.080002 lux, 阈值: 4.0 lux
+07-08 18:59:03.477 25916 25916 D EyeGuard-Sensor: 环境光线变化: 17.7525 lux, 阈值: 4.0 lux
+07-08 18:59:03.479 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:03.487 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：17 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:03.656 25916 25916 D EyeGuard-Sensor: 环境光线变化: 12.217501 lux, 阈值: 4.0 lux
+07-08 18:59:03.657 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:03.661 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：12 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:03.837 25916 25916 D EyeGuard-Sensor: 环境光线变化: 15.660001 lux, 阈值: 4.0 lux
+07-08 18:59:04.017 25916 25916 D EyeGuard-Sensor: 环境光线变化: 15.660001 lux, 阈值: 4.0 lux
+07-08 18:59:04.197 25916 25916 D EyeGuard-Sensor: 环境光线变化: 15.660001 lux, 阈值: 4.0 lux
+07-08 18:59:04.381 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.8675 lux, 阈值: 4.0 lux
+07-08 18:59:04.556 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:04.737 25916 25916 D EyeGuard-Sensor: 环境光线变化: 11.5425005 lux, 阈值: 4.0 lux
+07-08 18:59:04.916 25916 25916 D EyeGuard-Sensor: 环境光线变化: 16.335001 lux, 阈值: 4.0 lux
+07-08 18:59:05.096 25916 25916 D EyeGuard-Sensor: 环境光线变化: 15.660001 lux, 阈值: 4.0 lux
+07-08 18:59:05.276 25916 25916 D EyeGuard-Sensor: 环境光线变化: 14.985001 lux, 阈值: 4.0 lux
+07-08 18:59:05.456 25916 25916 D EyeGuard-Sensor: 环境光线变化: 14.985001 lux, 阈值: 4.0 lux
+07-08 18:59:05.638 25916 25916 D EyeGuard-Sensor: 环境光线变化: 14.31 lux, 阈值: 4.0 lux
+07-08 18:59:05.816 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.125 lux, 阈值: 4.0 lux
+07-08 18:59:05.997 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:06.176 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:06.356 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.8675 lux, 阈值: 4.0 lux
+07-08 18:59:06.538 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:06.717 25916 25916 D EyeGuard-Sensor: 环境光线变化: 7.425 lux, 阈值: 4.0 lux
+07-08 18:59:06.717 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:06.721 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：7 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:06.898 25916 25916 D EyeGuard-Sensor: 环境光线变化: 7.425 lux, 阈值: 4.0 lux
+07-08 18:59:07.076 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.8675 lux, 阈值: 4.0 lux
+07-08 18:59:07.258 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.125 lux, 阈值: 4.0 lux
+07-08 18:59:07.436 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.125 lux, 阈值: 4.0 lux
+07-08 18:59:07.617 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:07.796 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:07.979 25916 25916 D EyeGuard-Sensor: 环境光线变化: 12.217501 lux, 阈值: 4.0 lux
+07-08 18:59:07.980 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:07.988 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：12 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:08.160 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.775001 lux, 阈值: 4.0 lux
+07-08 18:59:08.336 25916 25916 D EyeGuard-Sensor: 环境光线变化: 7.425 lux, 阈值: 4.0 lux
+07-08 18:59:08.337 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:08.344 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：7 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:08.516 25916 25916 D EyeGuard-Sensor: 环境光线变化: 6.0075 lux, 阈值: 4.0 lux
+07-08 18:59:08.699 25916 25916 D EyeGuard-Sensor: 环境光线变化: 6.0075 lux, 阈值: 4.0 lux
+07-08 18:59:08.877 25916 25916 D EyeGuard-Sensor: 环境光线变化: 6.0075 lux, 阈值: 4.0 lux
+07-08 18:59:09.056 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.3325 lux, 阈值: 4.0 lux
+07-08 18:59:09.238 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 18:59:09.417 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 18:59:09.598 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:09.599 25916 25916 D EyeGuard-StateMachine: [IDLE] 光线不足，启动锁定倒计时 3000ms
+07-08 18:59:09.778 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:09.957 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.138 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.317 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.496 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.630 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:10.677 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.859 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:10.883 25916 26239 D ContentCapture: checkAgreedPrivayPolicy
+07-08 18:59:10.893 25916 26239 D ContentCapture: checkAgreedPrivayPolicy mHasAgreedPirvacyPolicy: true
+07-08 18:59:10.896 25916 26239 D ContentCapture: checkLongClickAndCapture.v:2 x:53 y:149
+07-08 18:59:10.903 25916 26239 D ContentCapture: findViewOnPointer
+07-08 18:59:10.903 25916 26239 V ContentCapture: checkViewBlackList, pkg:io.github.danwangshi.eyeguard act:io.github.danwangshi.eyeguard.MainActivity cls:android.widget.ScrollView self:android.widget.ScrollView id:io.github.danwangshi.eyeguard:id/layout_main_settings term:
+07-08 18:59:10.915 25916 25916 D ContentCapture: touchPoint downX: 53, downY: 149
+07-08 18:59:10.915 25916 25916 D ContentCapture: setCaptureParams isCollectionEnable = false, isVoiceRecorderEnable = false, rules: []
+07-08 18:59:10.915 25916 25916 D ContentCapture: capture clickVersion: 2 ,isAiPicker: false
+07-08 18:59:10.916 25916 25916 D ContentCapture: captureBegin 0
+07-08 18:59:10.917 25916 26239 V ContentCapture: getSendResultTimeout from settings = 800
+07-08 18:59:10.917 25916 26239 V ContentCapture: LongPress delays. capture:250 result:800
+07-08 18:59:10.921 25916 25916 V ContentCapture: start pick result = true main:true, mMultiBitmap = false
+07-08 18:59:10.921 25916 25916 D ContentCapture: doCapture, delay = 0 ,clickVersion: 2
+07-08 18:59:10.922 25916 25916 D ContentCapture: start capture
+07-08 18:59:10.922 25916 25916 D ContentCapture: start capture pickerConfigValue: -1
+07-08 18:59:10.924 25916 25916 D WebViewInfoPicker: getWebViewUrl com.android.internal.policy.DecorView
+07-08 18:59:10.924 25916 25916 W WebViewInfoPicker: com.android.internal.policy.DecorView getMethod failed:  null
+07-08 18:59:10.924 25916 25916 D ContentCapture: capture consume time: 3ms
+07-08 18:59:10.925 25916 25916 V ContentCapture: start scan
+07-08 18:59:10.928 25916 25916 V ContentCapture: scanViewList
+07-08 18:59:10.930 25916 25916 V ContentCapture: fillContent
+07-08 18:59:10.931 25916 25916 D WebViewInfoPicker: getWebViewUrl com.android.internal.policy.DecorView
+07-08 18:59:10.931 25916 25916 V ContentCapture: getBitmapFromDrawable drawable getIntrinsicWidth: -1, getIntrinsicHeight: -1, drawable.getClass().getName(): android.graphics.drawable.ColorDrawable
+07-08 18:59:10.931 25916 25916 D FindContentCanvas: drawRect left: 0.0, top: 0.0, right: 1080.0, bottom: 2400.0
+07-08 18:59:10.932 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.932 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.933 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.933 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.933 25916 26239 V ContentCapture: sendPickerScreenShotEvent longClickVersion: 2
+07-08 18:59:10.933 25916 25916 V ContentCapture: getBitmapFromDrawable drawable getIntrinsicWidth: -1, getIntrinsicHeight: -1, drawable.getClass().getName(): android.graphics.drawable.ColorDrawable
+07-08 18:59:10.934 25916 25916 D FindContentCanvas: drawRect left: 0.0, top: 0.0, right: 1080.0, bottom: 2219.0
+07-08 18:59:10.934 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.934 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.935 25916 25916 D WebViewInfoPicker: getWebViewUrl androidx.cardview.widget.CardView
+07-08 18:59:10.935 25916 25916 W WebViewInfoPicker: androidx.cardview.widget.CardView getMethod failed:  null
+07-08 18:59:10.935 25916 25916 V ContentCapture: getBitmapFromDrawable drawable getIntrinsicWidth: -1, getIntrinsicHeight: -1, drawable.getClass().getName(): androidx.cardview.widget.RoundRectDrawable
+07-08 18:59:10.935 25916 25916 D FindContentCanvas: drawRoundRect left: 0.0, top: 0.0, right: 956.0, bottom: 1093.0
+07-08 18:59:10.936 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.936 25916 26239 V ContentCapture: sendPickerScreenShotEvent result = true
+07-08 18:59:10.936 25916 26239 D ContentCapture: doCapture, consume: 14 ms
+07-08 18:59:10.936 25916 26239 D ContentCapture: sendPickerResult bitmapSize: 0, bmp: null
+07-08 18:59:10.936 25916 25916 V ContentCapture: find text = 锁定阈值
+07-08 18:59:10.936 25916 25916 V ContentCapture: find text = 环境亮度低于此值时将锁定手机
+07-08 18:59:10.937 25916 25916 V ContentCapture: find text = 4
+07-08 18:59:10.937 25916 26239 V ContentCapture: sendPickerResult, pick_fw_version=200708, hasContent=false, x=53, y=149, package=io.github.danwangshi.eyeguard, activity=io.github.danwangshi.eyeguard.MainActivity, uid=10355, pid=25916, window_token=android.view.ViewRootImpl$W@9e6db49, result=ContentInfo {view_class_name=null, view_self_class_name=null, view_id=null, contains_in_list_class=null, contains_in_list_id=null, text=null, hint=null, firstExtraText=null, paragrap=null, url=null, bitmaps.size=0, bitmap_from=0, webview_hit_type=0, webview_hit_extra=null, bound=Rect(0, 0 - 0, 0)}, topMostResult=ContentInfo {view_class_name=android.widget.LinearLayout, view_self_class_name=android.widget.LinearLayout, view_id=null, contains_in_list_class=null, contains_in_list_id=null, text=null, hint=null, firstExtraText=null, paragrap=null, url=null, bitmaps.size=0, bitmap_from=0, webview_hit_type=0, webview_hit_extra=null, bound=Rect(0, 116 - 1080, 2447)}, text=null, firstExtraText=null, bitmapByteSize=0, isJpg=false, imageUriStr=
+07-08 18:59:10.937 25916 25916 V ContentCapture: find text = lux
+07-08 18:59:10.937 25916 25916 V ContentCapture: find text = 点击数值可手动输入
+07-08 18:59:10.938 25916 25916 D FindContentCanvas: drawRoundRect left: 0.0, top: 38.0, right: 748.0, bottom: 86.0
+07-08 18:59:10.938 25916 25916 D FindContentCanvas: drawRoundRect left: 0.0, top: 38.0, right: 748.0, bottom: 86.0
+07-08 18:59:10.938 25916 25916 D FindContentCanvas: drawOval left: 8.5, top: 33.5, right: 65.5, bottom: 90.5
+07-08 18:59:10.938 25916 25916 D FindContentCanvas: drawOval left: 8.5, top: 33.5, right: 65.5, bottom: 90.5
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 0
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 150
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 300
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 参考值：夜晚关灯(0-10) 昏暗环境(10-50) 夜晚开灯(50-200) 明亮环境(300+)
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 当前环境亮度：
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = 3
+07-08 18:59:10.939 25916 25916 V ContentCapture: find text = lux
+07-08 18:59:10.940 25916 25916 D WebViewInfoPicker: getWebViewUrl androidx.cardview.widget.CardView
+07-08 18:59:10.940 25916 25916 V ContentCapture: getBitmapFromDrawable drawable getIntrinsicWidth: -1, getIntrinsicHeight: -1, drawable.getClass().getName(): androidx.cardview.widget.RoundRectDrawable
+07-08 18:59:10.940 25916 25916 D FindContentCanvas: drawRoundRect left: 0.0, top: 0.0, right: 956.0, bottom: 298.0
+07-08 18:59:10.940 25916 25916 V ContentCapture: getBitmapFromDrawable 0
+07-08 18:59:10.941 25916 25916 V ContentCapture: find text = 防抖延迟触发
+07-08 18:59:10.941 25916 25916 V ContentCapture: find text = 开启后，光线持续低于/高于阈值 3 秒才触发锁定/解锁，避免偶然遮挡频繁触发
+07-08 18:59:10.941 25916 25916 V ContentCapture: find text =
+07-08 18:59:10.941 25916 25916 V ContentCapture: find text = 停止
+07-08 18:59:10.941 25916 25916 V ContentCapture: find text = 使用提示：开启权限后点击「运行」，当环境光线变暗时，手机会自动锁定。
+07-08 18:59:10.942 25916 25916 V ContentCapture: find text = ⚙️ 稳定运行设置指引
+07-08 18:59:10.942 25916 25916 D WebViewInfoPicker: getWebViewUrl android.view.View
+07-08 18:59:10.942 25916 25916 W WebViewInfoPicker: android.view.View getMethod failed:  null
+07-08 18:59:10.942 25916 25916 D FindContentCanvas: drawRect left: 0.0, top: 0.0, right: 1080.0, bottom: 65.0
+07-08 18:59:10.942 25916 25916 D WebViewInfoPicker: getWebViewUrl android.view.View
+07-08 18:59:10.942 25916 25916 D FindContentCanvas: drawRect left: 0.0, top: 0.0, right: 1080.0, bottom: 116.0
+07-08 18:59:10.943 25916 25916 V ContentCapture: scan time = 18
+07-08 18:59:11.036 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:11.216 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:11.396 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:11.468 25916 26239 D ContentCapture: performLongClick.v:2
+07-08 18:59:11.468 25916 26239 D ContentCapture: isHandlingLongClick mClickVersion: 2 ,clickVersion: 2
+07-08 18:59:11.472 25916 26239 V ContentCapture: sendPickerLongClickEvent result = true
+07-08 18:59:11.472 25916 26239 V ContentCapture: filterImageViews
+07-08 18:59:11.472 25916 26239 V ContentCapture: filterImageViews:content://com.meizu.picker.pickerengine.SaveProvider.saveFile/content/0, consume: 0 ms
+07-08 18:59:11.472 25916 26239 V ContentCapture: parse time = 1
+07-08 18:59:11.474 25916 26239 V ContentCapture: onResultFinished 0:PageInfo{, mRect=Rect(0, 0 - 1080, 2400), mScreenshotUri=content://com.meizu.picker.pickerengine.SaveProvider.saveFile/content/0, pkg='io.github.danwangshi.eyeguard', act='io.github.danwangshi.eyeguard.MainActivity', orientation=1, mTextList=[[text:t=锁定阈值 r=Rect(124, 282 - 416, 391)], [text:t=环境亮度低于此值时将锁定手机 r=Rect(124, 412 - 852, 490)], [text:t=4 r=Rect(124, 552 - 180, 670)], [text:t=lux r=Rect(185, 577 - 248, 645)], [text:t=点击数值可手动输入 r=Rect(279, 584 - 603, 638)], [text:t=0 r=Rect(124, 858 - 401, 926)], [text:t=150 r=Rect(401, 858 - 678, 926)], [text:t=300 r=Rect(678, 858 - 956, 926)], [text:t=参考值：夜晚关灯(0-10) 昏暗环境(10-50) 夜晚开灯(50-200) 明亮环境(300+) r=Rect(124, 957 - 956, 1081)], [text:t=当前环境亮度： r=Rect(124, 1149 - 523, 1235)], [text:t=3 r=Rect(539, 1133 - 594, 1251)], [text:t=lux r=Rect(599, 1158 - 662, 1226)], [text:t=防抖延迟触发 r=Rect(114, 1407 - 426, 1485)], [text:t=开启后，光线持续低于/高于阈值 3 秒才触发锁定/解锁，避免偶然遮挡频繁触发 r=Rect(114, 1495 - 841, 1601)], [text:t=停止 r=Rect(62, 1715 - 1018, 1923)], [text:t=使用提示：开启权限后点击「运行」，当环境光线变暗时，手机会自动锁定。 r=Rect(62, 1985 - 1018, 2125)], [text:t=⚙️ 稳定运行设置指引 r=Rect(62, 2229 - 1018, 2385)]], mImageList=[], mWebList=[], mToken=android.view.ViewRootImpl$W@9e6db49}
+07-08 18:59:11.475 25916 26239 V ContentCapture: onResultFinished:PageInfo{, mRect=Rect(0, 0 - 1080, 2400), mScreenshotUri=content://com.meizu.picker.pickerengine.SaveProvider.saveFile/content/0, pkg='io.github.danwangshi.eyeguard', act='io.github.danwangshi.eyeguard.MainActivity', orientation=1, mTextList=[[text:t=锁定阈值 r=Rect(124, 282 - 416, 391)], [text:t=环境亮度低于此值时将锁定手机 r=Rect(124, 412 - 852, 490)], [text:t=4 r=Rect(124, 552 - 180, 670)], [text:t=lux r=Rect(185, 577 - 248, 645)], [text:t=点击数值可手动输入 r=Rect(279, 584 - 603, 638)], [text:t=0 r=Rect(124, 858 - 401, 926)], [text:t=150 r=Rect(401, 858 - 678, 926)], [text:t=300 r=Rect(678, 858 - 956, 926)], [text:t=参考值：夜晚关灯(0-10) 昏暗环境(10-50) 夜晚开灯(50-200) 明亮环境(300+) r=Rect(124, 957 - 956, 1081)], [text:t=当前环境亮度： r=Rect(124, 1149 - 523, 1235)], [text:t=3 r=Rect(539, 1133 - 594, 1251)], [text:t=lux r=Rect(599, 1158 - 662, 1226)], [text:t=防抖延迟触发 r=Rect(114, 1407 - 426, 1485)], [text:t=开启后，光线持续低于/高于阈值 3 秒才触发锁定/解锁，避免偶然遮挡频繁触发 r=Rect(114, 1495 - 841, 1601)], [text:t=停止 r=Rect(62, 1715 - 1018, 1923)], [text:t=使用提示：开启权限后点击「运行」，当环境光线变暗时，手机会自动锁定。 r=Rect(62, 1985 - 1018, 2125)], [text:t=⚙️ 稳定运行设置指引 r=Rect(62, 2229 - 1018, 2385)]], mImageList=[], mWebList=[], mToken=android.view.ViewRootImpl$W@9e6db49}
+07-08 18:59:11.577 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:11.642 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.picker / android.widget.RelativeLayout
+07-08 18:59:11.756 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:11.937 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:12.117 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:12.296 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:12.476 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:12.599 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 18:59:12.599 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 18:59:12.600 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 3.9825 lux
+07-08 18:59:12.600 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 18:59:12.609 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:12.613 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:12.618 25916 25916 D LockOverlayService: onCreate
+07-08 18:59:12.619 25916 25916 I CameraManagerGlobal: Connecting to camera service
+07-08 18:59:12.627 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25916 W CameraManagerGlobal: [soar.cts] ignore the status update of camera: 2
+07-08 18:59:12.628 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25916 W CameraManagerGlobal: [soar.cts] ignore the status update of camera: 3
+07-08 18:59:12.628 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25916 W CameraManagerGlobal: [soar.cts] ignore the status update of camera: 4
+07-08 18:59:12.628 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.628 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.629 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.629 25916 25933 W CameraManagerGlobal: ignore the torch status update of camera: 2
+07-08 18:59:12.629 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.629 25916 25933 W CameraManagerGlobal: ignore the torch status update of camera: 3
+07-08 18:59:12.629 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:12.629 25916 25933 W CameraManagerGlobal: ignore the torch status update of camera: 4
+07-08 18:59:12.634 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 18:59:12.634 25916 25916 D LockOverlayService: 创建锁定覆盖层
+07-08 18:59:12.689 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 18:59:12.689 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 18:59:12.690 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 18:59:12.693 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:12.710 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:12.726 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 18:59:12.726 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:12.836 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.2400002 lux, 阈值: 4.0 lux
+07-08 18:59:12.839 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:12.841 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:12.866 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 18:59:13.018 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 18:59:13.020 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.021 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:13.198 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:13.202 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.204 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:13.377 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:13.381 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.382 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:13.557 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:13.561 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.577 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:13.737 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:13.740 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.742 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:13.917 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 18:59:13.920 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:13.935 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.091 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.093 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.099 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.276 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.280 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.280 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.457 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.462 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.463 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.472 25916 26239 V ContentCapture: sendPickerBackEvent result = true
+07-08 18:59:14.636 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.639 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.640 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.816 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.819 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.821 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:14.989 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:14.992 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:14.995 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:15.054 25916 25916 V ContentCapture: ACTION_UP
+07-08 18:59:15.054 25916 25916 D ContentCapture: giveUpPerformLongClick1 longClickVersion: 2
+07-08 18:59:15.054 25916 25916 V ContentCapture: sendPickerGiveUpLongClickEvent longClickVersion = 2
+07-08 18:59:15.178 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:15.180 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:15.182 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:15.200 25916 26239 V ContentCapture: sendPickerBackEvent result = true
+07-08 18:59:15.244 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 18:59:15.356 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:15.360 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:15.361 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:15.536 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:15.540 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:15.542 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:15.716 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:15.720 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:15.721 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:15.761 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:15.820 25916 25916 D LockOverlayService: 紧急电话按钮点击
+07-08 18:59:15.820 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 18:59:15.822 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 18:59:15.822 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 18:59:15.845 25916 25916 D LockOverlayService: 打开紧急拨号器，已移除覆盖层，电话应用激活
+07-08 18:59:15.846 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@6ab06e3
+07-08 18:59:15.900 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:15.900 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 18:59:15.983 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / io.github.danwangshi.eyeguard.MainActivity
+07-08 18:59:15.984 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 18:59:16.080 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.7925 lux, 阈值: 4.0 lux
+07-08 18:59:16.080 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 18:59:16.080 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 18:59:16.080 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 4.7925 lux
+07-08 18:59:16.080 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 18:59:16.089 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:16.113 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：4 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:16.153 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 18:59:16.156 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 18:59:16.256 25916 25916 D EyeGuard-Sensor: 环境光线变化: 7.0875 lux, 阈值: 4.0 lux
+07-08 18:59:16.256 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:16.347 25916 25916 D LockAccessibilityService: 窗口变化: com.android.dialer / com.android.dialer.DialtactsActivity
+07-08 18:59:16.437 25916 25916 D EyeGuard-Sensor: 环境光线变化: 6.3450003 lux, 阈值: 4.0 lux
+07-08 18:59:16.437 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:16.480 25916 25916 D LockAccessibilityService: 窗口变化: com.android.dialer / android.widget.FrameLayout
+07-08 18:59:16.616 25916 25916 D EyeGuard-Sensor: 环境光线变化: 7.0875 lux, 阈值: 4.0 lux
+07-08 18:59:16.616 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:16.797 25916 25916 D EyeGuard-Sensor: 环境光线变化: 6.3450003 lux, 阈值: 4.0 lux
+07-08 18:59:16.797 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:16.976 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.67 lux, 阈值: 4.0 lux
+07-08 18:59:16.976 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:17.156 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.3325 lux, 阈值: 4.0 lux
+07-08 18:59:17.156 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:17.338 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.5350003 lux, 阈值: 4.0 lux
+07-08 18:59:17.338 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:17.516 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.3325 lux, 阈值: 4.0 lux
+07-08 18:59:17.516 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:17.697 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.7925 lux, 阈值: 4.0 lux
+07-08 18:59:17.697 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:17.876 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.32 lux, 阈值: 4.0 lux
+07-08 18:59:17.876 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:18.056 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.32 lux, 阈值: 4.0 lux
+07-08 18:59:18.056 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:18.236 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 18:59:18.236 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:18.417 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 18:59:18.417 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:18.599 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.6450002 lux, 阈值: 4.0 lux
+07-08 18:59:18.599 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:18.620 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.view.View
+07-08 18:59:18.767 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 18:59:18.767 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:18.956 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.2400002 lux, 阈值: 4.0 lux
+07-08 18:59:18.956 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:19.009 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.MainActivity,delayUs:200000,addus:200000
+07-08 18:59:19.015 25916 25916 I Instrumentation: SmartScene callActivityOnResume isMonkey = false
+07-08 18:59:19.028 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:19.136 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.2400002 lux, 阈值: 4.0 lux
+07-08 18:59:19.136 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:19.166 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期结束，状态转换: COOLDOWN → IDLE
+07-08 18:59:19.166 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期间光线低于阈值，立即启动锁定倒计时
+07-08 18:59:19.191 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / io.github.danwangshi.eyeguard.MainActivity
+07-08 18:59:19.319 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 18:59:19.497 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.7550001 lux, 阈值: 4.0 lux
+07-08 18:59:19.676 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.7550001 lux, 阈值: 4.0 lux
+07-08 18:59:19.856 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.7550001 lux, 阈值: 4.0 lux
+07-08 18:59:20.036 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.7550001 lux, 阈值: 4.0 lux
+07-08 18:59:20.218 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 18:59:20.397 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 18:59:20.576 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 18:59:20.757 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 18:59:20.936 25916 25916 D LightMonitorService: [安全网] 屏幕已关闭但状态未同步，主动暂停传感器检测
+07-08 18:59:20.937 25916 25916 D LightMonitorService: 传感器监听已暂停
+07-08 18:59:20.937 25916 25916 D LightMonitorService: WakeLock 已释放
+07-08 18:59:20.989 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:21.275 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:21.425 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:21.545 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:21.964 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:22.006 25916 27033 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:22.166 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 18:59:22.166 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 18:59:22.166 25916 25916 D LightMonitorService: 息屏状态，跳过锁定
+07-08 18:59:23.205 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.MainActivity,delayUs:200000,addus:200000
+07-08 18:59:23.261 25916 25916 I Instrumentation: SmartScene callActivityOnResume isMonkey = false
+07-08 18:59:23.327 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:23.651 25916 25932 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:23.744 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / io.github.danwangshi.eyeguard.MainActivity
+07-08 18:59:24.154 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:24.159 25916 26239 W ContentCapture: retractPickerResult failed : Permission Denial: not allowed to send broadcast com.meizu.picker.action.service.RETRACT_RESULT_V1 from pid=25916, uid=10355
+07-08 18:59:24.254 25916 25916 D LightMonitorService: [屏幕] 用户解锁确认
+07-08 18:59:24.261 25916 25916 D LightMonitorService: WakeLock 已重新获取
+07-08 18:59:24.262 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.LightMonitorService,delayUs:500000,addus:500000
+07-08 18:59:24.262 25916 25916 D LightMonitorService: 传感器监听已恢复
+07-08 18:59:24.263 25916 25916 D LightMonitorService: [恢复监测] isLocked=false, currentState=LOCKED, currentLux=1.0125, threshold=4.0
+07-08 18:59:24.263 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 1.0125 lux
+07-08 18:59:24.263 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 18:59:24.287 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:24.291 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:24.295 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:24.296 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:24.305 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 18:59:24.306 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 18:59:24.355 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 18:59:24.355 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 18:59:24.385 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:24.401 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 18:59:24.452 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:24.454 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:24.469 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:24.529 25916 25916 V ContentCapture: ACTION_UP
+07-08 18:59:24.572 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 18:59:24.631 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:24.637 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:24.643 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:24.812 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:24.813 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:24.822 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:24.996 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:24.998 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.004 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:25.171 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:25.173 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.181 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:25.373 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:25.397 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.411 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:25.533 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:25.535 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.539 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:25.716 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:25.721 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.728 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:25.895 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:25.898 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:25.919 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.020 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 18:59:26.020 25916 25916 D LockAccessibilityService: 检测到桌面，保持锁定
+07-08 18:59:26.023 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 18:59:26.023 25916 25916 D LockOverlayService: 强制刷新遮罩层
+07-08 18:59:26.023 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 18:59:26.023 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 18:59:26.023 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 18:59:26.077 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.084 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.115 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.253 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.256 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.257 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.432 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.437 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.437 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.612 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.614 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.614 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.631 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 18:59:26.631 25916 25916 D LockAccessibilityService: 检测到桌面，保持锁定
+07-08 18:59:26.643 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 18:59:26.643 25916 25916 D LockOverlayService: 强制刷新遮罩层
+07-08 18:59:26.643 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 18:59:26.643 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 18:59:26.644 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 18:59:26.792 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.795 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.796 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:26.972 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:26.974 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:26.975 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:27.245 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:27.245 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: com.android.systemui，若光线不足将恢复锁定
+07-08 18:59:27.405 25916 25916 D LightMonitorService: [安全网] 屏幕已关闭但状态未同步，主动暂停传感器检测
+07-08 18:59:27.406 25916 25916 D LightMonitorService: 传感器监听已暂停
+07-08 18:59:27.407 25916 25916 D LightMonitorService: WakeLock 已释放
+07-08 18:59:27.467 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:27.588 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:28.062 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:29.100 25916 27033 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:30.642 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:30.764 25916 25916 D LockAccessibilityService: 窗口变化: com.flyme.systemuitools / android.widget.FrameLayout
+07-08 18:59:30.764 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: com.flyme.systemuitools，若光线不足将恢复锁定
+07-08 18:59:30.942 25916 27033 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:31.213 25916 25916 D LightMonitorService: [屏幕] 用户解锁确认
+07-08 18:59:31.225 25916 25916 D LightMonitorService: WakeLock 已重新获取
+07-08 18:59:31.226 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.LightMonitorService,delayUs:500000,addus:500000
+07-08 18:59:31.228 25916 25916 D LightMonitorService: 传感器监听已恢复
+07-08 18:59:31.229 25916 25916 D LightMonitorService: [恢复监测] isLocked=true, currentState=LOCKED, currentLux=0.0, threshold=4.0
+07-08 18:59:31.298 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 18:59:31.420 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:31.422 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:31.434 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:31.578 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:31.581 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:31.581 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:31.758 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:31.760 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:31.761 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:31.938 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:31.940 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:31.941 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:32.118 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:32.120 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:32.121 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:32.298 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:32.300 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:32.301 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:32.517 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:32.517 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: com.android.systemui，若光线不足将恢复锁定
+07-08 18:59:32.644 25916 25916 D LightMonitorService: [安全网] 屏幕已关闭但状态未同步，主动暂停传感器检测
+07-08 18:59:32.645 25916 25916 D LightMonitorService: 传感器监听已暂停
+07-08 18:59:32.646 25916 25916 D LightMonitorService: WakeLock 已释放
+07-08 18:59:32.684 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:32.856 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:33.241 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:33.676 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:34.808 25916 27033 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:36.561 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:36.712 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:36.892 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:36.932 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:37.029 25916 25916 D LightMonitorService: [屏幕] 用户解锁确认
+07-08 18:59:37.031 25916 25916 D LightMonitorService: WakeLock 已重新获取
+07-08 18:59:37.032 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.LightMonitorService,delayUs:500000,addus:500000
+07-08 18:59:37.035 25916 25916 D LightMonitorService: 传感器监听已恢复
+07-08 18:59:37.035 25916 25916 D LightMonitorService: [恢复监测] isLocked=true, currentState=LOCKED, currentLux=0.0, threshold=4.0
+07-08 18:59:37.076 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 18:59:37.084 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 18:59:37.084 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 18:59:37.085 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 26.325 lux
+07-08 18:59:37.085 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 18:59:37.094 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:37.112 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：26 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:37.115 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 18:59:37.116 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:37.116 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 18:59:37.116 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 18:59:37.118 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 18:59:37.118 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 18:59:37.120 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@74bf318
+07-08 18:59:37.247 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 18:59:37.248 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:37.276 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 18:59:37.428 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.5275 lux, 阈值: 4.0 lux
+07-08 18:59:37.428 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:37.607 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:37.607 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:37.787 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:37.787 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:37.967 25916 25916 D EyeGuard-Sensor: 环境光线变化: 12.217501 lux, 阈值: 4.0 lux
+07-08 18:59:37.968 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:37.972 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：12 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:37.975 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:38.147 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.565 lux, 阈值: 4.0 lux
+07-08 18:59:38.148 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:38.151 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：2 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:38.154 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:38.327 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.565 lux, 阈值: 4.0 lux
+07-08 18:59:38.327 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:38.507 25916 25916 D EyeGuard-Sensor: 环境光线变化: 10.8675 lux, 阈值: 4.0 lux
+07-08 18:59:38.508 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:38.511 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：10 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:38.514 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:38.687 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:38.688 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:38.692 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：25 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:38.695 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:38.867 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.6625 lux, 阈值: 4.0 lux
+07-08 18:59:38.867 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:39.049 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.312502 lux, 阈值: 4.0 lux
+07-08 18:59:39.049 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:39.229 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.312502 lux, 阈值: 4.0 lux
+07-08 18:59:39.230 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:39.408 25916 25916 D EyeGuard-Sensor: 环境光线变化: 24.6375 lux, 阈值: 4.0 lux
+07-08 18:59:39.408 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:39.589 25916 25916 D EyeGuard-Sensor: 环境光线变化: 23.962502 lux, 阈值: 4.0 lux
+07-08 18:59:39.589 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:39.770 25916 25916 D LightMonitorService: [安全网] 屏幕已关闭但状态未同步，主动暂停传感器检测
+07-08 18:59:39.772 25916 25916 D LightMonitorService: 传感器监听已暂停
+07-08 18:59:39.777 25916 25916 D LightMonitorService: WakeLock 已释放
+07-08 18:59:39.915 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:40.116 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期结束，状态转换: COOLDOWN → IDLE
+07-08 18:59:40.116 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期间光线正常，重新检测当前状态
+07-08 18:59:40.144 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:40.352 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:40.823 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:42.456 25916 25932 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:48.313 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / com.android.systemui.volume.VolumePanel$7
+07-08 18:59:48.905 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:49.706 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 18:59:49.927 25916 25916 D LockAccessibilityService: 窗口变化: com.flyme.systemuitools / android.widget.FrameLayout
+07-08 18:59:50.107 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 18:59:50.141 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.assistant / android.widget.FrameLayout
+07-08 18:59:50.283 25916 25916 D LightMonitorService: [屏幕] 用户解锁确认
+07-08 18:59:50.292 25916 25916 D LightMonitorService: WakeLock 已重新获取
+07-08 18:59:50.293 25916 25916 D SensorManager: listenerName:io.github.danwangshi.eyeguard.LightMonitorService,delayUs:500000,addus:500000
+07-08 18:59:50.294 25916 25916 D LightMonitorService: 传感器监听已恢复
+07-08 18:59:50.295 25916 25916 D LightMonitorService: [恢复监测] isLocked=false, currentState=IDLE, currentLux=24.6375, threshold=4.0
+07-08 18:59:50.347 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:50.348 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:50.351 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：0 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:50.355 25916 25916 D EyeGuard-StateMachine: [IDLE] 光线不足，启动锁定倒计时 3000ms
+07-08 18:59:50.526 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:50.706 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:50.886 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.066 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.246 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.426 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.606 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.786 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:51.966 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:52.146 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:52.328 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:52.511 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:52.687 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:52.871 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.047 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.227 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.356 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 18:59:53.356 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 18:59:53.358 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 0.0 lux
+07-08 18:59:53.359 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 18:59:53.368 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:53.371 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:53.375 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 18:59:53.375 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 18:59:53.394 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 18:59:53.394 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 18:59:53.410 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 18:59:53.422 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.426 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:53.427 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 18:59:53.436 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:53.563 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 18:59:53.586 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.589 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:53.589 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:53.767 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.770 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:53.773 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:53.947 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:53.951 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:53.955 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:54.130 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:54.133 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:54.135 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:54.306 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:54.309 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:54.316 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:54.487 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:54.489 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:54.490 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:54.670 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:54.674 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:54.676 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:54.848 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:54.852 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:54.855 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.027 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:55.032 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:55.033 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.207 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:55.211 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:55.216 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.386 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 18:59:55.391 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:55.392 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.566 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.2400002 lux, 阈值: 4.0 lux
+07-08 18:59:55.570 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 18:59:55.572 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.747 25916 25916 D EyeGuard-Sensor: 环境光线变化: 23.962502 lux, 阈值: 4.0 lux
+07-08 18:59:55.752 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 18:59:55.753 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 18:59:55.753 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 23.962502 lux
+07-08 18:59:55.753 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 18:59:55.756 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:55.760 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：23 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:55.764 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 18:59:55.764 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 18:59:55.764 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 18:59:55.764 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 18:59:55.768 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 18:59:55.768 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 18:59:55.770 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@7e71c8d
+07-08 18:59:55.903 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 18:59:55.926 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:55.926 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:56.107 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:56.107 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:56.288 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:56.289 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:56.468 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:56.468 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:56.647 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:56.647 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:56.834 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.987501 lux, 阈值: 4.0 lux
+07-08 18:59:56.834 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.006 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 18:59:57.006 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.187 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.650002 lux, 阈值: 4.0 lux
+07-08 18:59:57.187 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.367 25916 25916 D EyeGuard-Sensor: 环境光线变化: 22.2075 lux, 阈值: 4.0 lux
+07-08 18:59:57.367 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.547 25916 25916 D EyeGuard-Sensor: 环境光线变化: 13.2300005 lux, 阈值: 4.0 lux
+07-08 18:59:57.548 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:57.553 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：13 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:57.557 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.727 25916 25916 D EyeGuard-Sensor: 环境光线变化: 16.6725 lux, 阈值: 4.0 lux
+07-08 18:59:57.727 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:57.907 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.650002 lux, 阈值: 4.0 lux
+07-08 18:59:57.908 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:57.912 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：25 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:57.916 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:58.087 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 18:59:58.087 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:58.267 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 18:59:58.267 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:58.446 25916 25916 D EyeGuard-Sensor: 环境光线变化: 12.555 lux, 阈值: 4.0 lux
+07-08 18:59:58.447 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:58.451 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：12 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:58.454 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 18:59:58.627 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.9025002 lux, 阈值: 4.0 lux
+07-08 18:59:58.628 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 18:59:58.636 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：2 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 18:59:58.641 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 18:59:58.764 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期结束，状态转换: COOLDOWN → IDLE
+07-08 18:59:58.764 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期间光线低于阈值，立即启动锁定倒计时
+07-08 18:59:58.807 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:58.988 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:59.168 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:59.347 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:59.528 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:59.708 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 18:59:59.887 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.067 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.247 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.426 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.606 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.787 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:00.966 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.149 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.326 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.506 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.686 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.765 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 19:00:01.765 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 19:00:01.765 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 0.20250002 lux
+07-08 19:00:01.766 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 19:00:01.771 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:01.776 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:01.782 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:01.783 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:01.803 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:01.803 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:01.831 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:01.854 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:01.876 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:01.880 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:01.909 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.026 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:02.046 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:02.048 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.049 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.226 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:02.228 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.236 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.406 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:02.409 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.410 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.524 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:02.586 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:02.596 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.598 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.610 25916 25916 D LockOverlayService: 手电筒按钮点击
+07-08 19:00:02.610 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 19:00:02.657 25916 25916 D LockOverlayService: 手电筒状态: true
+07-08 19:00:02.658 25916 25933 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 19:00:02.661 25916 25916 D LockOverlayService: 手电筒外部状态变化: true
+07-08 19:00:02.766 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:02.768 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.769 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:02.947 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:02.951 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:02.953 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:03.127 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:03.129 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:03.131 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:03.311 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:03.316 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:03.317 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:03.318 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:03.385 25916 25916 D LockOverlayService: 手电筒按钮点击
+07-08 19:00:03.385 25916 25916 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 19:00:03.408 25916 25916 D LockOverlayService: 手电筒状态: false
+07-08 19:00:03.408 25916 25932 W libc    : Access denied finding property "vendor.camera.aux.packagelist"
+07-08 19:00:03.412 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:03.486 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:03.488 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:03.489 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:03.667 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:03.672 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:03.673 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:03.847 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:03.851 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:03.852 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.027 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:04.033 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.034 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.207 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:04.209 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.209 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.387 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:04.391 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.393 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.567 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:04.571 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.572 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.752 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:04.754 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.756 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:04.927 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:04.933 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:04.935 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.106 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:05.110 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:05.112 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.291 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:05.295 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:05.296 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.470 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.7550001 lux, 阈值: 4.0 lux
+07-08 19:00:05.475 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:05.475 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.646 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:05.648 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:05.650 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.782 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:05.826 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:05.831 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:05.832 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:05.841 25916 25916 D LockOverlayService: 紧急电话按钮点击
+07-08 19:00:05.841 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:05.845 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:05.846 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:05.868 25916 25916 D LockOverlayService: 打开紧急拨号器，已移除覆盖层，电话应用激活
+07-08 19:00:05.869 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@62542fd
+07-08 19:00:06.006 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 19:00:06.006 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 19:00:06.006 25916 25916 D LockAccessibilityService: 检测到桌面，保持锁定
+07-08 19:00:06.020 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:06.020 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.033 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:06.033 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:06.081 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:06.081 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:06.098 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:06.116 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:06.191 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:06.195 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.209 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:06.253 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@318a95c
+07-08 19:00:06.269 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:06.362 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:06.368 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.368 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:06.546 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:06.549 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.549 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:06.686 25916 25916 D LockAccessibilityService: 窗口变化: android / android.app.Dialog
+07-08 19:00:06.687 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: android，若光线不足将恢复锁定
+07-08 19:00:06.727 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:06.730 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.734 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:06.907 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:06.910 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:06.913 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.086 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:07.089 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.091 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.266 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:07.269 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.270 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.447 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:07.449 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.450 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.629 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:07.631 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.633 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.807 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:07.809 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.811 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:07.982 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:07.985 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:07.988 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:08.167 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:08.171 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:08.172 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:08.346 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:08.349 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:08.351 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:08.429 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:08.482 25916 25916 D LockOverlayService: 紧急电话按钮点击
+07-08 19:00:08.482 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:08.484 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:08.484 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:08.494 25916 25916 D LockOverlayService: 打开紧急拨号器，已移除覆盖层，电话应用激活
+07-08 19:00:08.494 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@e7415a2
+07-08 19:00:08.529 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:08.529 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:08.625 25916 25916 D LockAccessibilityService: 窗口变化: android / android.app.Dialog
+07-08 19:00:08.626 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 19:00:08.706 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:08.706 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:08.890 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:08.890 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:09.066 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:09.066 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:09.249 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.87750006 lux, 阈值: 4.0 lux
+07-08 19:00:09.249 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:09.430 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.1175003 lux, 阈值: 4.0 lux
+07-08 19:00:09.430 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 19:00:09.430 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 19:00:09.430 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 4.1175003 lux
+07-08 19:00:09.430 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 19:00:09.453 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:09.504 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：4 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:09.512 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 19:00:09.512 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 19:00:09.529 25916 25916 D LockAccessibilityService: 窗口变化: com.android.dialer / com.android.dialer.DialtactsActivity
+07-08 19:00:09.607 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:09.607 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:09.792 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:09.792 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:09.969 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:09.971 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:10.147 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:10.148 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:10.335 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:10.335 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:10.507 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:10.507 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:10.691 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:10.692 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:10.869 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:10.869 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.044 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:11.044 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.227 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.0125 lux, 阈值: 4.0 lux
+07-08 19:00:11.227 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.401 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:11.402 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.588 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:11.588 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.767 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.5525 lux, 阈值: 4.0 lux
+07-08 19:00:11.768 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:11.950 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:11.950 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:12.128 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.5525 lux, 阈值: 4.0 lux
+07-08 19:00:12.128 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:12.320 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:12.320 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:12.492 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.5525 lux, 阈值: 4.0 lux
+07-08 19:00:12.495 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:12.515 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期结束，状态转换: COOLDOWN → IDLE
+07-08 19:00:12.515 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期间光线低于阈值，立即启动锁定倒计时
+07-08 19:00:12.660 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.8900001 lux, 阈值: 4.0 lux
+07-08 19:00:12.837 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:12.868 25916 25916 D LockAccessibilityService: 窗口变化: com.android.incallui / com.android.incallui.InCallActivity
+07-08 19:00:13.017 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:13.197 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:13.377 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:13.556 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:13.736 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:13.917 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:14.106 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:14.278 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:14.456 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:14.637 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:14.826 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:15.007 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:15.186 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:15.357 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:15.515 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 19:00:15.515 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 19:00:15.516 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 0.0 lux
+07-08 19:00:15.516 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 19:00:15.523 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:15.529 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:15.537 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:15.538 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:15.565 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:15.565 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:15.566 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:15.568 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:15.583 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:15.600 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:15.600 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:15.726 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:15.729 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:15.729 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:15.740 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:15.906 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:15.909 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:15.912 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.086 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.090 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.091 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.268 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.270 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.272 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.447 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.449 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.451 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.627 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.630 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.631 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.806 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.809 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.811 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:16.987 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:16.992 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:16.993 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:17.166 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:17.169 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:17.171 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:17.347 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:17.350 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:17.353 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:17.526 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:17.529 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:17.530 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:17.706 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:17.709 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:17.710 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:17.886 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:17.888 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:17.889 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:18.068 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.073 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:18.074 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:18.247 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.253 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:18.253 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:18.427 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.429 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:18.431 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:18.606 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.609 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:18.610 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:18.730 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:18.781 25916 25916 D LockOverlayService: 紧急电话按钮点击
+07-08 19:00:18.781 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:18.783 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:18.783 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:18.808 25916 25916 D LockOverlayService: 打开紧急拨号器，已移除覆盖层，电话应用激活
+07-08 19:00:18.809 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.812 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:18.813 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@b4e9e23
+07-08 19:00:18.966 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:18.966 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:19.042 25916 25916 D LockAccessibilityService: 窗口变化: android / android.app.Dialog
+07-08 19:00:19.043 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 19:00:19.044 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: android，若光线不足将恢复锁定
+07-08 19:00:19.137 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:19.137 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:19.318 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:19.318 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:19.507 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:19.508 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:19.688 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:19.688 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:19.868 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:19.869 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:20.053 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:20.053 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:20.217 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:20.217 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:20.259 25916 25916 D LockAccessibilityService: 窗口变化: com.android.dialer / com.android.dialer.DialtactsActivity
+07-08 19:00:20.259 25916 25916 D LockAccessibilityService: 电话应用在前台: com.android.dialer，隐藏遮罩层
+07-08 19:00:20.407 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.105 lux, 阈值: 4.0 lux
+07-08 19:00:20.408 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:20.519 25916 25916 D LockAccessibilityService: 窗口变化: com.android.incallui / android.widget.LinearLayout
+07-08 19:00:20.592 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.105 lux, 阈值: 4.0 lux
+07-08 19:00:20.593 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:20.766 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.105 lux, 阈值: 4.0 lux
+07-08 19:00:20.766 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:20.948 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.7800002 lux, 阈值: 4.0 lux
+07-08 19:00:20.949 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:21.126 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.7800002 lux, 阈值: 4.0 lux
+07-08 19:00:21.126 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:21.307 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.1975 lux, 阈值: 4.0 lux
+07-08 19:00:21.307 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:21.488 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.1975 lux, 阈值: 4.0 lux
+07-08 19:00:21.488 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:21.666 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.1975 lux, 阈值: 4.0 lux
+07-08 19:00:21.667 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:21.846 25916 25916 D EyeGuard-Sensor: 环境光线变化: 5.1975 lux, 阈值: 4.0 lux
+07-08 19:00:21.847 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:22.026 25916 25916 D EyeGuard-Sensor: 环境光线变化: 8.1 lux, 阈值: 4.0 lux
+07-08 19:00:22.027 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:22.056 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 19:00:22.056 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 19:00:22.056 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: com.android.systemui，若光线不足将恢复锁定
+07-08 19:00:22.175 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 19:00:22.206 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:22.206 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:22.386 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.2400002 lux, 阈值: 4.0 lux
+07-08 19:00:22.386 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:22.566 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.565 lux, 阈值: 4.0 lux
+07-08 19:00:22.566 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:22.755 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.8900001 lux, 阈值: 4.0 lux
+07-08 19:00:22.755 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:22.882 25916 25916 D LockAccessibilityService: 检测到窗口内容变化且锁定界面未显示，重新显示
+07-08 19:00:22.896 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:22.904 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:22.992 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:22.992 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:22.997 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:23.004 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:23.034 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:23.044 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:23.044 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:23.108 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:23.112 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:23.113 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:23.290 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.215 lux, 阈值: 4.0 lux
+07-08 19:00:23.296 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:23.301 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:23.397 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:23.473 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.54 lux, 阈值: 4.0 lux
+07-08 19:00:23.500 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:23.503 25916 25916 D LockAccessibilityService: 窗口变化: com.android.incallui / com.android.incallui.InCallActivity
+07-08 19:00:23.503 25916 25916 D LockAccessibilityService: 电话应用在前台: com.android.incallui，隐藏遮罩层
+07-08 19:00:23.511 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:23.532 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 19:00:23.532 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:23.545 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:23.545 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:23.580 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@9d29e4d
+07-08 19:00:23.602 25916 25916 I ImeTracker: io.github.danwangshi.eyeguard:cf547d67: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+07-08 19:00:23.609 25916 25916 I ImeTracker: io.github.danwangshi.eyeguard:cf547d67: onFailed at PHASE_CLIENT_VIEW_SERVED
+07-08 19:00:23.609 25916 25916 W InputMethodManager: No current root view, ignoring closeCurrentInput()
+07-08 19:00:23.637 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:23.637 25916 25916 D EyeGuard-StateMachine: 通话中或电话应用活跃，保持当前状态 (state=LOCKED, isLocked=true)
+07-08 19:00:23.737 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+07-08 19:00:23.737 25916 25916 D LockAccessibilityService: 离开电话应用，重新启用遮罩
+07-08 19:00:23.737 25916 25916 D LockAccessibilityService: 尝试切换到非白名单应用: com.android.systemui，若光线不足将恢复锁定
+07-08 19:00:23.826 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:23.827 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.006 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:24.007 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.186 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:24.186 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.366 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:24.366 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.549 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:24.549 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.727 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:24.727 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:24.902 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:24.902 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:25.089 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:25.089 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:25.410 25916 25916 D LockAccessibilityService: 检测到窗口内容变化且锁定界面未显示，重新显示
+07-08 19:00:25.420 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:25.421 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:25.444 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:25.444 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:25.459 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:25.471 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:25.625 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:26.394 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:26.404 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:26.420 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:26.572 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.7675002 lux, 阈值: 4.0 lux
+07-08 19:00:26.575 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:26.575 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:26.764 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:26.769 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:26.770 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:26.944 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:26.946 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:26.946 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:27.122 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:27.124 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:27.124 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:27.303 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:27.306 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:27.311 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:27.483 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:27.488 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:27.493 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:27.662 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.0925 lux, 阈值: 4.0 lux
+07-08 19:00:27.664 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:27.664 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:27.842 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:27.845 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:27.846 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.022 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.026 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.029 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.204 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.206 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.208 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.383 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.385 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.387 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.562 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.567 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.568 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.742 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.744 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.745 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:28.922 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:28.928 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:28.928 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:29.106 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:29.110 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:29.112 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:29.273 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.675 lux, 阈值: 4.0 lux
+07-08 19:00:29.276 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:29.277 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:30.504 25916 25916 D EyeGuard-Sensor: 环境光线变化: 1.35 lux, 阈值: 4.0 lux
+07-08 19:00:30.512 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:30.538 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:30.682 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:30.685 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:30.686 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:30.873 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:30.880 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:30.881 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:31.589 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:31.618 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:31.619 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:31.766 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 19:00:31.768 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 19:00:31.768 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 19:00:31.768 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 4.6575003 lux
+07-08 19:00:31.768 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 19:00:31.770 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:31.773 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：4 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:31.777 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 19:00:31.777 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:31.777 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 19:00:31.777 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:31.779 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:31.779 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:31.781 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@a028181
+07-08 19:00:31.914 25916 25916 D LockAccessibilityService: 窗口变化: com.android.incallui / com.android.incallui.InCallActivity
+07-08 19:00:31.957 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 19:00:31.957 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:32.141 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.6575003 lux, 阈值: 4.0 lux
+07-08 19:00:32.141 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:32.317 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:32.317 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:32.496 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:32.497 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:32.678 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:32.678 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:32.857 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:32.857 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.037 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:33.037 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.216 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:33.216 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.397 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:33.397 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.583 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.9825 lux, 阈值: 4.0 lux
+07-08 19:00:33.583 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.608 25916 25916 D LockAccessibilityService: 窗口变化: com.android.dialer / com.android.dialer.DialtactsActivity
+07-08 19:00:33.768 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:33.768 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:33.943 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:33.943 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:34.116 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:34.116 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:34.296 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:34.296 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:34.476 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:34.477 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:34.658 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:34.658 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 低于阈值
+07-08 19:00:34.777 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期结束，状态转换: COOLDOWN → IDLE
+07-08 19:00:34.777 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却期间光线低于阈值，立即启动锁定倒计时
+07-08 19:00:34.838 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:35.022 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:35.196 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:35.376 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.7675002 lux, 阈值: 4.0 lux
+07-08 19:00:35.558 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.4425 lux, 阈值: 4.0 lux
+07-08 19:00:35.704 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 19:00:35.736 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:35.918 25916 25916 D EyeGuard-Sensor: 环境光线变化: 3.6450002 lux, 阈值: 4.0 lux
+07-08 19:00:36.096 25916 25916 D EyeGuard-Sensor: 环境光线变化: 2.2275002 lux, 阈值: 4.0 lux
+07-08 19:00:36.102 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.assistant / android.widget.FrameLayout
+07-08 19:00:36.276 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:36.456 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:36.636 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:36.817 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:36.997 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:37.177 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:37.357 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:37.536 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:37.716 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:37.779 25916 25916 D EyeGuard-StateMachine: [IDLE] 锁定倒计时结束，执行锁定
+07-08 19:00:37.779 25916 25916 D EyeGuard-StateMachine: 状态转换: IDLE → LOCKED
+07-08 19:00:37.779 25916 25916 D LightMonitorService: 锁定设备，当前亮度: 0.20250002 lux
+07-08 19:00:37.779 25916 25916 D LockAccessibilityService: 锁定状态设置为: true
+07-08 19:00:37.790 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:37.799 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=光线太暗，手机已锁定, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:37.804 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK
+07-08 19:00:37.805 25916 25916 D LockOverlayService: 复用已缓存的锁定覆盖层
+07-08 19:00:37.822 25916 25916 D LockOverlayService: 注册手电筒状态回调
+07-08 19:00:37.822 25916 25916 D LockOverlayService: 锁定覆盖层显示成功
+07-08 19:00:37.836 25916 26141 E OpenGLRenderer: Unable to match the desired swap behavior.
+07-08 19:00:37.862 25916 25916 D LockOverlayService: 手电筒外部状态变化: false
+07-08 19:00:37.895 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:37.899 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:37.899 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.003 25916 25916 D LockAccessibilityService: 窗口变化: io.github.danwangshi.eyeguard / android.widget.FrameLayout
+07-08 19:00:38.080 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.081 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.083 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.256 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.260 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.260 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.436 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.440 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.440 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.617 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.620 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.622 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.796 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.800 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.800 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:38.979 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:38.983 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:38.985 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.158 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:39.163 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:39.164 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.336 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:39.338 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:39.339 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.516 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.0 lux, 阈值: 4.0 lux
+07-08 19:00:39.518 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:39.520 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.697 25916 25916 D EyeGuard-Sensor: 环境光线变化: 0.20250002 lux, 阈值: 4.0 lux
+07-08 19:00:39.700 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线仍然低于阈值，保持锁定
+07-08 19:00:39.705 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.876 25916 25916 D EyeGuard-Sensor: 环境光线变化: 4.9950004 lux, 阈值: 4.0 lux
+07-08 19:00:39.880 25916 25916 D EyeGuard-StateMachine: [LOCKED] 光线恢复，立即解锁
+07-08 19:00:39.881 25916 25916 D EyeGuard-StateMachine: 状态转换: LOCKED → COOLDOWN
+07-08 19:00:39.881 25916 25916 D LightMonitorService: 解除锁定，当前亮度: 4.9950004 lux
+07-08 19:00:39.881 25916 25916 D LockAccessibilityService: 锁定状态设置为: false
+07-08 19:00:39.884 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:39.888 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：4 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:39.891 25916 25916 D EyeGuard-StateMachine: 启动冷却倒计时 3000ms
+07-08 19:00:39.891 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX
+07-08 19:00:39.892 25916 25916 D LockOverlayService: onStartCommand: io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK
+07-08 19:00:39.892 25916 25916 D LockOverlayService: 移除锁定覆盖层
+07-08 19:00:39.894 25916 25916 D LockOverlayService: 取消手电筒状态回调
+07-08 19:00:39.894 25916 25916 D LockOverlayService: 锁定覆盖层移除成功
+07-08 19:00:39.895 25916 25916 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@7301f57
+07-08 19:00:40.032 25916 25916 D LockAccessibilityService: 窗口变化: com.meizu.flyme.launcher / com.android.launcher3.uioverrides.QuickstepLauncher
+07-08 19:00:40.058 25916 25916 D EyeGuard-Sensor: 环境光线变化: 23.5575 lux, 阈值: 4.0 lux
+07-08 19:00:40.064 25916 25916 D NotificationService: NotificationChannel (light_monitor_channel,光线监测,2)
+07-08 19:00:40.082 25916 25916 V NotificationManager: io.github.danwangshi.eyeguard: notifyAsUser(1, Notification(channel=light_monitor_channel shortcut=null contentView=null bigContentView=null extras=Bundle[{android.title=不要关灯玩手机, android.reduced.images=true, android.subText=null, android.showChronometer=false, android.text=正在监测环境光线，当前亮度：23 lux, android.progress=0, android.progressMax=0, android.appInfo=ApplicationInfo{cb4b7aa io.github.danwangshi.eyeguard}, android.showWhen=true, android.largeIcon=null, android.infoText=null, android.progressIndeterminate=false, android.remoteInputHistory=null}] tickerText=null vibrate=null sound=null defaults=0x0 flags=0x2 color=0x00000000 actions=1 vis=PRIVATE))
+07-08 19:00:40.088 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:40.237 25916 25916 D EyeGuard-Sensor: 环境光线变化: 24.300001 lux, 阈值: 4.0 lux
+07-08 19:00:40.237 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:40.416 25916 25916 D EyeGuard-Sensor: 环境光线变化: 25.650002 lux, 阈值: 4.0 lux
+07-08 19:00:40.416 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:40.597 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 19:00:40.597 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:40.780 25916 25916 D EyeGuard-Sensor: 环境光线变化: 27.000002 lux, 阈值: 4.0 lux
+07-08 19:00:40.780 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:40.957 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 19:00:40.957 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.138 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.325 lux, 阈值: 4.0 lux
+07-08 19:00:41.139 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.316 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.19 lux, 阈值: 4.0 lux
+07-08 19:00:41.316 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.497 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.865002 lux, 阈值: 4.0 lux
+07-08 19:00:41.497 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.677 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.6625 lux, 阈值: 4.0 lux
+07-08 19:00:41.677 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.860 25916 25916 D EyeGuard-Sensor: 环境光线变化: 26.5275 lux, 阈值: 4.0 lux
+07-08 19:00:41.860 25916 25916 D EyeGuard-StateMachine: [COOLDOWN] 冷却中，记录光线状态: 高于阈值
+07-08 19:00:41.922 25916 25916 D LockAccessibilityService: 窗口变化: com.android.systemui / android.widget.FrameLayout
+PS C:\Users\evil\Desktop>

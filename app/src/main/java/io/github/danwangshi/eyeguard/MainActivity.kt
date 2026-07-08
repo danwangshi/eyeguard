@@ -25,6 +25,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import android.widget.EditText
 
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+
 /**
  * 主界面 - 包含权限引导和护眼配置
  */
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         private const val TAG = "MainActivity"
         private const val REQUEST_OVERLAY_PERMISSION = 1001
         private const val REQUEST_ACCESSIBILITY_PERMISSION = 1002
+        private const val REQUEST_PHONE_STATE_PERMISSION = 1003
     }
 
     // 布局容器
@@ -359,6 +365,15 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             return
         }
 
+        // 请求通话状态权限（用于来电时自动隐藏遮罩层）
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.READ_PHONE_STATE),
+                REQUEST_PHONE_STATE_PERMISSION)
+            // 权限回调后继续启动，这里先不 return，允许其他功能正常运行
+        }
+
         val intent = Intent(this, LightMonitorService::class.java).apply { action = LightMonitorService.ACTION_START }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
 
@@ -393,6 +408,22 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         if (isBound) {
             unbindService(serviceConnection)
             isBound = false
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            REQUEST_PHONE_STATE_PERMISSION -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    AppLog.d(TAG, "READ_PHONE_STATE 权限已授予")
+                    // 重新注册通话状态监听
+                    lightMonitorService?.setupPhoneStateListener()
+                } else {
+                    AppLog.d(TAG, "READ_PHONE_STATE 权限被拒绝，通话时遮罩层不会自动隐藏")
+                    Toast.makeText(this, "未授予通话权限，来电时遮罩层不会自动隐藏", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 
