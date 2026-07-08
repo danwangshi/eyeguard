@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.app.Service
 import android.content.Context
@@ -32,9 +32,9 @@ class LockOverlayService : Service() {
         private const val TAG = "LockOverlayService"
 
         // 动作
-        const val ACTION_SHOW_LOCK = "com.example.dontplayinthedark.ACTION_SHOW_LOCK"
-        const val ACTION_REMOVE_LOCK = "com.example.dontplayinthedark.ACTION_REMOVE_LOCK"
-        const val ACTION_UPDATE_LUX = "com.example.dontplayinthedark.ACTION_UPDATE_LUX"
+        const val ACTION_SHOW_LOCK = "io.github.danwangshi.eyeguard.ACTION_SHOW_LOCK"
+        const val ACTION_REMOVE_LOCK = "io.github.danwangshi.eyeguard.ACTION_REMOVE_LOCK"
+        const val ACTION_UPDATE_LUX = "io.github.danwangshi.eyeguard.ACTION_UPDATE_LUX"
 
         // 当前是否显示锁定界面
         var isShowing = false

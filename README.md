@@ -184,7 +184,7 @@
 ## 项目结构
 
 ```
-app/src/main/java/com/example/dontplayinthedark/
+app/src/main/java/io/github/danwangshi/eyeguard/
 ├── MainActivity.kt              # 主界面（权限引导 + 护眼配置 + 实时亮度显示）
 ├── LightMonitorService.kt       # 光线监测前台服务（核心状态机 + 电话监听 + 省电策略）
 ├── LockOverlayService.kt        # 悬浮窗遮罩层服务（手电筒 + 紧急电话 + 亮度实时更新）
@@ -239,7 +239,7 @@ app/src/main/res/
 
 ```bash
 # 进入项目目录
-cd DontPlayInTheDark
+cd eyeguard
 
 # 构建 Debug APK
 ./gradlew assembleDebug

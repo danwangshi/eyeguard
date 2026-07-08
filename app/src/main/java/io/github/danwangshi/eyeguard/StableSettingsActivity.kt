@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.content.Intent
 import android.net.Uri

@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.content.BroadcastReceiver
 import android.content.Context

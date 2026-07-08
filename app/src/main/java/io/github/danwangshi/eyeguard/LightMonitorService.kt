@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -43,8 +43,8 @@ class LightMonitorService : Service(), SensorEventListener {
         const val THRESHOLD_LOOSE = 200f   // 宽松：200 lux（夜晚开灯级别）
 
         // 动作
-        const val ACTION_START = "com.example.dontplayinthedark.ACTION_START"
-        const val ACTION_STOP = "com.example.dontplayinthedark.ACTION_STOP"
+        const val ACTION_START = "io.github.danwangshi.eyeguard.ACTION_START"
+        const val ACTION_STOP = "io.github.danwangshi.eyeguard.ACTION_STOP"
 
         // 当前服务运行状态
         var isRunning = false
@@ -197,7 +197,7 @@ class LightMonitorService : Service(), SensorEventListener {
         )
 
         // 注册广播接收器监听状态检查请求
-        val filter = IntentFilter("com.example.dontplayinthedark.ACTION_CHECK_LOCK")
+        val filter = IntentFilter("io.github.danwangshi.eyeguard.ACTION_CHECK_LOCK")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             registerReceiver(lockCheckReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
         } else {
@@ -303,7 +303,7 @@ class LightMonitorService : Service(), SensorEventListener {
 
     private val lockCheckReceiver = object : android.content.BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            if (intent?.action == "com.example.dontplayinthedark.ACTION_CHECK_LOCK") {
+            if (intent?.action == "io.github.danwangshi.eyeguard.ACTION_CHECK_LOCK") {
                 AppLog.d(TAG, "收到锁定检查请求，延迟 2 秒执行（等待传感器稳定）")
                 // 取消之前的待处理检查
                 pendingLockCheck?.let { handler.removeCallbacks(it) }

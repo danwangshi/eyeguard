@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.util.Log
 
@@ -7,7 +7,7 @@ import android.util.Log
  * 根据 DebugConfig 的配置决定是否输出日志
  */
 object AppLog {
-    private const val TAG = "DontPlayInTheDark"
+    private const val TAG = "EyeGuard"
     
     /**
      * 输出 DEBUG 级别日志

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.dontplayinthedark'
+    namespace 'io.github.danwangshi.eyeguard'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.dontplayinthedark"
+        applicationId "io.github.danwangshi.eyeguard"
         minSdk 23
         targetSdk 34
         versionCode 1
@@ -20,6 +20,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

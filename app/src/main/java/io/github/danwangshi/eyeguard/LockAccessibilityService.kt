@@ -1,4 +1,4 @@
-package com.example.dontplayinthedark
+package io.github.danwangshi.eyeguard
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
@@ -57,7 +57,7 @@ class LockAccessibilityService : AccessibilityService() {
             // 系统设置
             "com.android.settings",
             // 本应用
-            "com.example.dontplayinthedark"
+            "io.github.danwangshi.eyeguard"
         )
 
         // 桌面启动器包名常量
@@ -238,7 +238,7 @@ class LockAccessibilityService : AccessibilityService() {
      */
     private fun checkAndRequestLock() {
         // 发送广播给 LightMonitorService 让其重新检查光线和锁定状态
-        val intent = Intent("com.example.dontplayinthedark.ACTION_CHECK_LOCK")
+        val intent = Intent("io.github.danwangshi.eyeguard.ACTION_CHECK_LOCK")
         sendBroadcast(intent)
     }
 
