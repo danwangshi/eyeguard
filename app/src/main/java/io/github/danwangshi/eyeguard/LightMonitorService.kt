@@ -823,14 +823,6 @@ class LightMonitorService : Service(), SensorEventListener {
             notificationManager?.createNotificationChannel(channel)
         }
 
-        // 创建点击通知时打开主界面的PendingIntent
-        val pendingIntent = PendingIntent.getActivity(
-            this,
-            0,
-            Intent(this, MainActivity::class.java),
-            PendingIntent.FLAG_IMMUTABLE
-        )
-
         val contentText = if (isLocked) {
             getString(R.string.notification_locked)
         } else {
@@ -841,7 +833,6 @@ class LightMonitorService : Service(), SensorEventListener {
             .setContentTitle(getString(R.string.notification_title))
             .setContentText(contentText)
             .setSmallIcon(android.R.drawable.ic_menu_compass)  // 使用系统图标，实际项目中应使用自定义图标
-            .setContentIntent(pendingIntent)
             .setOngoing(true)
             .build()
     }
