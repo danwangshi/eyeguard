@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">不要关灯玩手机</string>
+
+    <!-- 服务描述 -->
+    <string name="accessibility_service_description">用于在暗光环境下锁定手机，防止伤害眼睛。需要此权限来拦截返回键和Home键。</string>
+
+    <!-- 锁定界面 -->
+    <string name="lock_title">🌙 光线太暗</string>
+    <string name="lock_subtitle">请开灯后再使用手机</string>
+    <string name="lock_current_lux">当前亮度：%d lux</string>
+    <string name="lock_target_lux">需要达到：%d lux</string>
+    <string name="lock_progress">亮度进度</string>
+    <string name="lock_waiting">等待光线恢复…</string>
+
+    <!-- 按钮 -->
+    <string name="btn_flashlight">手电筒</string>
+    <string name="btn_emergency">紧急电话</string>
+    <string name="btn_settings">设置</string>
+    <string name="btn_start">运行</string>
+    <string name="btn_stop">停止</string>
+
+    <!-- 主界面 -->
+    <string name="main_title">护眼保护</string>
+    <string name="main_status_running">正在运行</string>
+    <string name="main_status_stopped">已停止</string>
+    <string name="main_current_lux">当前环境亮度</string>
+    <string name="main_threshold">锁定阈值</string>
+
+    <!-- 阈值设置 -->
+    <string name="threshold_strict">严格 (50 lux)</string>
+    <string name="threshold_normal">标准 (100 lux)</string>
+    <string name="threshold_loose">宽松 (200 lux)</string>
+    <string name="threshold_desc">环境亮度低于此值时将锁定手机</string>
+
+    <!-- 权限 -->
+    <string name="permission_overlay_title">需要悬浮窗权限</string>
+    <string name="permission_overlay_desc">此权限用于在暗光环境下显示锁定界面，阻止继续使用手机。</string>
+    <string name="permission_accessibility_title">需要无障碍权限</string>
+    <string name="permission_accessibility_desc">此权限用于拦截返回键和Home键，确保锁定有效。</string>
+    <string name="permission_grant">去开启</string>
+    <string name="permission_later">稍后再说</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_name">光线监测</string>
+    <string name="notification_title">不要关灯玩手机</string>
+    <string name="notification_content">正在监测环境光线，当前亮度：%d lux</string>
+    <string name="notification_locked">光线太暗，手机已锁定</string>
+
+    <!-- 帮助 -->
+    <string name="help_title">使用帮助</string>
+    <string name="help_step1">1. 开启悬浮窗权限</string>
+    <string name="help_step2">2. 开启无障碍权限</string>
+    <string name="help_step3">3. 点击"运行"</string>
+    <string name="help_step4">4. 当环境变暗时，手机会自动锁定</string>
+    <string name="help_step5">5. 开灯后，手机自动解锁</string>
+
+    <!-- 关于 -->
+    <string name="about_title">关于</string>
+    <string name="about_desc">此应用旨在帮助用户在暗光环境下保护视力。当检测到环境光线不足时，会锁定手机直到光线恢复。</string>
+
+</resources>
