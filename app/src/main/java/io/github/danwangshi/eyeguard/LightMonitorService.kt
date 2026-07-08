@@ -831,16 +831,6 @@ class LightMonitorService : Service(), SensorEventListener {
             PendingIntent.FLAG_IMMUTABLE
         )
 
-        // 创建停止服务的动作
-        val stopIntent = PendingIntent.getService(
-            this,
-            0,
-            Intent(this, LightMonitorService::class.java).apply {
-                action = ACTION_STOP
-            },
-            PendingIntent.FLAG_IMMUTABLE
-        )
-
         val contentText = if (isLocked) {
             getString(R.string.notification_locked)
         } else {
@@ -853,7 +843,6 @@ class LightMonitorService : Service(), SensorEventListener {
             .setSmallIcon(android.R.drawable.ic_menu_compass)  // 使用系统图标，实际项目中应使用自定义图标
             .setContentIntent(pendingIntent)
             .setOngoing(true)
-            .addAction(android.R.drawable.ic_menu_close_clear_cancel, "停止", stopIntent)
             .build()
     }
 
