@@ -26,6 +26,7 @@ local.properties
 *.iml
 *.iws
 *.ipr
+.claude/
 
 # Keystore files
 *.jks
@@ -44,5 +45,9 @@ Thumbs.db
 
 # Log files
 *.log
-
+logs/
 *.hprof
+
+# Screenshots and UI dumps
+screenshot_*.png
+ui*.xml
