@@ -226,13 +226,18 @@ class LightMonitorService : Service(), SensorEventListener {
                             pauseMonitoring()
                         }
                         Intent.ACTION_SCREEN_ON -> {
-                            AppLog.d(TAG, "[屏幕] 收到亮屏广播，等待用户解锁")
-                            // 亮屏但不解锁，暂不恢复监测
-                        }
-                        Intent.ACTION_USER_PRESENT -> {
-                            AppLog.d(TAG, "[屏幕] 用户解锁，恢复传感器检测")
+                            AppLog.d(TAG, "[屏幕] 收到亮屏广播，恢复传感器检测")
                             isScreenOn = true
                             resumeMonitoring()
+                        }
+                        Intent.ACTION_USER_PRESENT -> {
+                            AppLog.d(TAG, "[屏幕] 用户解锁确认")
+                            // 如果 SCREEN_ON 已经触发了 resumeMonitoring，这里不需要重复操作
+                            // 仅作为兜底：如果 SCREEN_ON 未收到，在此恢复
+                            if (!isScreenOn) {
+                                isScreenOn = true
+                                resumeMonitoring()
+                            }
                         }
                     }
                 } finally {
