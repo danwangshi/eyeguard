@@ -131,10 +131,17 @@ class LockAccessibilityService : AccessibilityService() {
                     return
                 }
 
-                // 如果之前在电话中，现在切换到非电话应用，重置标记并重新遮罩
+                // 如果之前在电话中，现在切换到非电话应用，重置标记并恢复遮罩
                 if (LockOverlayService.isPhoneAppActive) {
-                    AppLog.d(TAG, "离开电话应用，重新启用遮罩")
+                    AppLog.d(TAG, "离开电话应用，重置标记并恢复遮罩")
                     LockOverlayService.clearPhoneAppActive()
+                    // 离开电话应用后，如果 App 仍处于锁定状态，立即恢复遮罩层
+                    // 无论目标应用是否为白名单，都需重新显示遮罩
+                    if (isLocked) {
+                        AppLog.d(TAG, "离开电话应用，回归锁定状态，恢复遮罩层")
+                        restartLockOverlay()
+                        return
+                    }
                 }
 
                 // === 以下逻辑需要 isLocked ===

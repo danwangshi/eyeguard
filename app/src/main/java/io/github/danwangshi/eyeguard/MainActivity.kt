@@ -275,7 +275,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun loadSettings() {
-        val thresholdValue = prefs.getInt("threshold_value", 0)
+        // 默认阈值使用 1 lux（仅极端黑暗环境触发），配合防抖避免误触发
+        val thresholdValue = prefs.getInt("threshold_value", 1)
         val debounceEnabled = prefs.getBoolean("debounce_enabled", false)
         AppLog.d(TAG, "加载设置: threshold_value=$thresholdValue, debounce_enabled=$debounceEnabled")
         seekbarThreshold.progress = thresholdValue

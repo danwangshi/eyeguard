@@ -246,15 +246,22 @@ class LockOverlayService : Service() {
         AppLog.d(TAG, "移除锁定覆盖层")
 
         try {
-            windowManager.removeView(overlayView)
+            // 检查 View 是否仍附着在 WindowManager 上
+            // 息屏后部分系统会自动移除 TYPE_APPLICATION_OVERLAY 窗口
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
+                !overlayView!!.isAttachedToWindow
+            ) {
+                AppLog.d(TAG, "锁定覆盖层已被系统移除，仅重置状态")
+            } else {
+                windowManager.removeView(overlayView)
+                AppLog.d(TAG, "锁定覆盖层移除成功")
+            }
             isShowing = false
-
             // 取消手电筒状态回调
             unregisterTorchCallback()
-
-            AppLog.d(TAG, "锁定覆盖层移除成功")
         } catch (e: Exception) {
-            AppLog.e(TAG, "移除锁定覆盖层失败", e)
+            AppLog.e(TAG, "移除锁定覆盖层失败，强制重置状态", e)
+            isShowing = false
         }
     }
 

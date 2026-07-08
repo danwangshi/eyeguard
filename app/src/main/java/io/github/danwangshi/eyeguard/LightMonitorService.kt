@@ -132,7 +132,8 @@ class LightMonitorService : Service(), SensorEventListener {
         notificationManager = getSystemService(NotificationManager::class.java)
 
         // 读取用户设置的阈值和防抖开关
-        currentThreshold = prefs.getInt("threshold_value", 0).toFloat()
+        // 默认使用 1 lux（仅极端黑暗环境触发），配合防抖避免误触发
+        currentThreshold = prefs.getInt("threshold_value", 1).toFloat()
         debounceEnabled = prefs.getBoolean("debounce_enabled", false)
 
         // 初始化电话状态监听
@@ -263,12 +264,18 @@ class LightMonitorService : Service(), SensorEventListener {
     /**
      * 暂停监测（息屏时调用）
      * 仅暂停传感器和释放 WakeLock，保持锁定状态不变
-     * 亮屏后由 resumeMonitoring → checkLockState 根据新传感器数据决定解锁
+     * 亮屏后由 resumeMonitoring → 首次传感器数据 决定解锁
      */
     private fun pauseMonitoring() {
         // 注意：不调用 transitionToIdle()，保持 isLocked 和 currentState 不变
         // 息屏时遮罩层由系统自动隐藏，无需手动移除
-        // 亮屏后 checkLockState() 会根据新的传感器数据决定是否解锁
+        // 亮屏后首次传感器数据会触发 checkLight/checkLockState
+
+        // 重置传感器数据处理状态，确保 resume 后首次数据不被限流丢弃
+        // 原因：部分设备重注册传感器后时间戳重置，导致限流计算溢出而丢弃所有数据
+        // 见 onSensorChanged 中 now - lastProcessedSensorTime < 2000 的判断
+        hasSensorData = false
+        lastProcessedSensorTime = 0L
 
         // 取消传感器监听，节省电量
         sensorManager.unregisterListener(this)
@@ -286,7 +293,10 @@ class LightMonitorService : Service(), SensorEventListener {
 
     /**
      * 恢复监测（亮屏解锁后调用）
-     * 重新获取 WakeLock、注册传感器、根据当前光线状态判断是否解锁
+     * 重新获取 WakeLock、注册传感器、等待传感器首次数据到来时判断锁定状态
+     * 注意：checkLockState 在 resume 后不会立即执行（hasSensorData=false 提前返回），
+     * 必须等首次传感器数据到达后由 onSensorChanged 触发状态判断。
+     * 这样避免了使用息屏前的过期亮度值做错误决策。
      */
     private fun resumeMonitoring() {
         // 重新获取 WakeLock
@@ -307,11 +317,9 @@ class LightMonitorService : Service(), SensorEventListener {
         )
         AppLog.d(TAG, "传感器监听已恢复")
 
-        // 恢复后立即检查当前光线状态
-        // 如果亮屏后光线已高于阈值，checkLockState 会解锁并移除遮罩层
-        // 如果光线仍低于阈值，保持锁定状态
-        AppLog.d(TAG, "[恢复监测] isLocked=$isLocked, currentState=$currentState, currentLux=$currentLux, threshold=$currentThreshold")
-        checkLockState()
+        // 等待首次传感器数据，避免使用息屏前的过期亮度值
+        // 首次传感器数据到达后，onSensorChanged 会执行 checkLight / checkLockState
+        AppLog.d(TAG, "[恢复监测] isLocked=$isLocked, currentState=$currentState, threshold=$currentThreshold")
     }
 
     // 延迟锁定检查：离开电话应用后等待传感器稳定
@@ -456,6 +464,12 @@ class LightMonitorService : Service(), SensorEventListener {
         currentThreshold = newThreshold
         AppLog.d(TAG, "阈值更新为: $currentThreshold lux")
         checkLockState()
+        // 同步状态机状态：手动调阈值触发的锁定/解锁是非防抖的，
+        // 需要将 currentState 与 isLocked 对齐，避免后续防抖状态机出现冗余操作
+        if (debounceEnabled) {
+            currentState = if (isLocked) LightState.LOCKED else LightState.IDLE
+            AppLog.stateMachine("阈值更新后同步状态: currentState=$currentState, isLocked=$isLocked")
+        }
     }
 
     /**
