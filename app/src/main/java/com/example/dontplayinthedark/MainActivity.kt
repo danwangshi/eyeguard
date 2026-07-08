@@ -345,7 +345,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private fun requestAccessibilityPermission() {
         AlertDialog.Builder(this)
             .setTitle("需要无障碍权限")
-            .setMessage("此权限用于拦截返回键和Home键，确保在暗光环境下能有效锁定手机。请在设置中找到\"不要关灯玩手机\"并开启。")
+            .setMessage("此权限用于检测窗口变化，确保在暗光环境下能有效锁定手机。请在设置中找到\"不要关灯玩手机\"并开启。")
             .setPositiveButton("去开启") { _, _ ->
                 startActivityForResult(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS), REQUEST_ACCESSIBILITY_PERMISSION)
             }

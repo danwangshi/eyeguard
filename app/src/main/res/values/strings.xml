@@ -2,7 +2,7 @@
     <string name="app_name">不要关灯玩手机</string>
 
     <!-- 服务描述 -->
-    <string name="accessibility_service_description">用于在暗光环境下锁定手机，防止伤害眼睛。需要此权限来拦截返回键和Home键。</string>
+    <string name="accessibility_service_description">用于在暗光环境下锁定手机，防止伤害眼睛。需要此权限来检测窗口变化。</string>
 
     <!-- 锁定界面 -->
     <string name="lock_title">🌙 光线太暗</string>
@@ -36,7 +36,7 @@
     <string name="permission_overlay_title">需要悬浮窗权限</string>
     <string name="permission_overlay_desc">此权限用于在暗光环境下显示锁定界面，阻止继续使用手机。</string>
     <string name="permission_accessibility_title">需要无障碍权限</string>
-    <string name="permission_accessibility_desc">此权限用于拦截返回键和Home键，确保锁定有效。</string>
+    <string name="permission_accessibility_desc">此权限用于检测窗口变化，确保锁定有效。</string>
     <string name="permission_grant">去开启</string>
     <string name="permission_later">稍后再说</string>
 

@@ -182,7 +182,7 @@ class LockOverlayService : Service() {
                 width = WindowManager.LayoutParams.MATCH_PARENT
                 height = WindowManager.LayoutParams.MATCH_PARENT
 
-                // 窗口类型
+                // 关键标志位
                 type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
                 } else {
@@ -190,11 +190,8 @@ class LockOverlayService : Service() {
                     WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
                 }
 
-                // 关键标志位 - 拦截所有触摸，包括下拉通知栏
-                flags = WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
-                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
-                        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                        WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                // 标志位：保持屏幕常亮，不拦截通知栏
+                flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
 
                 // 适配刘海屏/挖孔屏
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

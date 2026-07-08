@@ -2,12 +2,11 @@ package com.example.dontplayinthedark
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
-import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 
 /**
  * 无障碍服务
- * 用于拦截返回键、检测Home键和最近任务键
+ * 用于检测窗口变化、识别电话应用
  */
 class LockAccessibilityService : AccessibilityService() {
 
@@ -189,32 +188,6 @@ class LockAccessibilityService : AccessibilityService() {
                 }
             }
         }
-    }
-
-    override fun onKeyEvent(event: KeyEvent): Boolean {
-        // 通话中或电话应用在前台时，不拦截按键
-        if (LockStateHelper.shouldSkipLock()) {
-            return super.onKeyEvent(event)
-        }
-
-        if (!isLocked) return super.onKeyEvent(event)
-
-        when (event.keyCode) {
-            KeyEvent.KEYCODE_BACK,
-            KeyEvent.KEYCODE_HOME,
-            KeyEvent.KEYCODE_APP_SWITCH,
-            KeyEvent.KEYCODE_MENU,
-            KeyEvent.KEYCODE_SEARCH,
-            KeyEvent.KEYCODE_ASSIST -> {
-                if (event.action == KeyEvent.ACTION_DOWN) {
-                    AppLog.d(TAG, "拦截按键: ${event.keyCode}")
-                }
-                // 返回 true 消费此事件，阻止所有系统导航操作
-                return true
-            }
-        }
-
-        return super.onKeyEvent(event)
     }
 
     override fun onInterrupt() {

@@ -68,7 +68,7 @@
             android:enabled="true"
             android:exported="false" />
 
-        <!-- 无障碍服务（按键拦截） -->
+        <!-- 无障碍服务（窗口变化检测） -->
         <service
             android:name=".LockAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
