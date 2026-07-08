@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         private const val REQUEST_OVERLAY_PERMISSION = 1001
         private const val REQUEST_ACCESSIBILITY_PERMISSION = 1002
         private const val REQUEST_PHONE_STATE_PERMISSION = 1003
+        private const val REQUEST_POST_NOTIFICATIONS = 1004
+        private const val REQUEST_CAMERA = 1005
     }
 
     // 布局容器
@@ -375,6 +377,24 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             // 权限回调后继续启动，这里先不 return，允许其他功能正常运行
         }
 
+        // 请求通知权限（Android 13+ 前台服务通知需要）
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    REQUEST_POST_NOTIFICATIONS)
+            }
+        }
+
+        // 请求相机权限（用于手电筒功能）
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA),
+                REQUEST_CAMERA)
+        }
+
         val intent = Intent(this, LightMonitorService::class.java).apply { action = LightMonitorService.ACTION_START }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
 
@@ -423,6 +443,22 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 } else {
                     AppLog.d(TAG, "READ_PHONE_STATE 权限被拒绝，通话时遮罩层不会自动隐藏")
                     Toast.makeText(this, "未授予通话权限，来电时遮罩层不会自动隐藏", Toast.LENGTH_LONG).show()
+                }
+            }
+            REQUEST_POST_NOTIFICATIONS -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    AppLog.d(TAG, "POST_NOTIFICATIONS 权限已授予")
+                } else {
+                    AppLog.d(TAG, "POST_NOTIFICATIONS 权限被拒绝，通知将不显示")
+                    Toast.makeText(this, "未授予通知权限，前台服务通知将不可见", Toast.LENGTH_LONG).show()
+                }
+            }
+            REQUEST_CAMERA -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    AppLog.d(TAG, "CAMERA 权限已授予")
+                } else {
+                    AppLog.d(TAG, "CAMERA 权限被拒绝，手电筒功能不可用")
+                    Toast.makeText(this, "未授予相机权限，遮罩层手电筒功能无法使用", Toast.LENGTH_LONG).show()
                 }
             }
         }

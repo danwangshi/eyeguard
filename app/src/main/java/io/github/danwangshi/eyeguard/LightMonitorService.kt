@@ -257,7 +257,12 @@ class LightMonitorService : Service(), SensorEventListener {
             addAction(Intent.ACTION_SCREEN_ON)
             addAction(Intent.ACTION_USER_PRESENT)
         }
-        registerReceiver(screenStateReceiver, screenFilter)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(screenStateReceiver, screenFilter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            @Suppress("UnspecifiedRegisterReceiverFlag")
+            registerReceiver(screenStateReceiver, screenFilter)
+        }
         AppLog.d(TAG, "屏幕状态广播接收器已注册")
     }
 

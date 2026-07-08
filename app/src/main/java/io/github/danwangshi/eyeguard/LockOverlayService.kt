@@ -3,6 +3,7 @@ package io.github.danwangshi.eyeguard
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.PixelFormat
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCharacteristics
@@ -381,6 +382,11 @@ class LockOverlayService : Service() {
      */
     private fun toggleFlashlight(on: Boolean) {
         try {
+            // 检查相机权限，未授予时静默失败
+            if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                AppLog.w(TAG, "没有CAMERA权限，无法切换手电筒")
+                return
+            }
             cameraManager?.let { cm ->
                 cameraId?.let { id ->
                     cm.setTorchMode(id, on)
