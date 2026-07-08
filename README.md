@@ -275,4 +275,6 @@ MIT License
 
 ## 开发者
 
-基于用户需求开发的护眼工具
+- **作者：** danwangshimoluo
+- **联系方式：** [GitHub Issues](https://github.com/danwangshi/eyeguard/issues)
+- **项目地址：** [https://github.com/danwangshi/eyeguard](https://github.com/danwangshi/eyeguard)
