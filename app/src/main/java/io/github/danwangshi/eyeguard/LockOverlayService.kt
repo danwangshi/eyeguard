@@ -13,6 +13,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.provider.Settings
+import android.speech.tts.TextToSpeech
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -20,13 +21,14 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import java.util.Locale
 
 /**
  * 锁定覆盖层服务
  * 显示全屏悬浮窗，拦截所有触摸事件
  * 注意：光线传感器监听由 LightMonitorService 统一管理，本服务不再独立注册
  */
-class LockOverlayService : Service() {
+class LockOverlayService : Service(), TextToSpeech.OnInitListener {
 
     companion object {
         private const val TAG = "LockOverlayService"
@@ -85,6 +87,10 @@ class LockOverlayService : Service() {
     private var cameraManager: CameraManager? = null
     private var cameraId: String? = null
     private var torchCallback: CameraManager.TorchCallback? = null
+
+    // TTS 语音播报
+    private var textToSpeech: TextToSpeech? = null
+    private var ttsInitialized = false
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -150,10 +156,31 @@ class LockOverlayService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
+    /**
+     * TextToSpeech 初始化回调
+     */
+    override fun onInit(status: Int) {
+        ttsInitialized = (status == TextToSpeech.SUCCESS)
+        if (ttsInitialized) {
+            textToSpeech?.language = Locale.CHINESE
+            AppLog.d(TAG, "TTS 初始化成功")
+        } else {
+            AppLog.w(TAG, "TTS 初始化失败: status=$status")
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         AppLog.d(TAG, "onDestroy")
         removeLockOverlay()
+        // 释放 TTS 资源
+        textToSpeech?.let {
+            it.stop()
+            it.shutdown()
+        }
+        textToSpeech = null
+        ttsInitialized = false
+        AppLog.d(TAG, "TTS 资源已释放")
     }
 
     /**
@@ -210,6 +237,9 @@ class LockOverlayService : Service() {
 
             // 设置按钮点击事件
             setupButtons()
+
+            // 初始化 TTS 语音播报（首次创建遮罩时初始化一次，后续复用）
+            textToSpeech = TextToSpeech(this, this)
         } else {
             AppLog.d(TAG, "复用已缓存的锁定覆盖层")
         }
@@ -282,6 +312,21 @@ class LockOverlayService : Service() {
             view.findViewById<LinearLayout>(R.id.btn_emergency)?.setOnClickListener {
                 AppLog.d(TAG, "紧急电话按钮点击")
                 openEmergencyDialer()
+            }
+
+            // 中央卡片区域点击 → TTS 语音播报
+            view.findViewById<View>(R.id.card_container)?.setOnClickListener {
+                if (ttsInitialized) {
+                    AppLog.d(TAG, "卡片区域点击，触发语音播报")
+                    textToSpeech?.speak(
+                        "光线太暗，请开灯玩手机",
+                        TextToSpeech.QUEUE_FLUSH,
+                        null,
+                        "lock_tts"
+                    )
+                } else {
+                    AppLog.d(TAG, "TTS 未就绪，跳过语音播报")
+                }
             }
         }
     }

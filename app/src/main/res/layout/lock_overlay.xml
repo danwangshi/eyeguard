@@ -5,13 +5,16 @@
     android:layout_height="match_parent"
     android:background="@color/lock_background">
 
-    <!-- 主要内容卡片 (居中) -->
+    <!-- 主要内容卡片 (居中，点击语音播报) -->
     <LinearLayout
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="32dp"
         android:background="@drawable/bg_card_dark"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp">
