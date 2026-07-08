@@ -37,6 +37,15 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    // 自定义 APK 文件名：eyeguard_版本号_buildType.apk
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def versionName = variant.versionName
+            def buildType = variant.buildType.name
+            outputFileName = "eyeguard_v${versionName}_${buildType}.apk"
+        }
+    }
 }
 
 dependencies {
