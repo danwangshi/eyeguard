@@ -816,8 +816,8 @@ class LightMonitorService : Service(), SensorEventListener {
                 getString(R.string.notification_channel_name),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = getString(R.string.notification_title)
                 setShowBadge(false)
+                setSound(null, null)
             }
 
             notificationManager?.createNotificationChannel(channel)
