@@ -118,7 +118,7 @@
 - 遮罩层显示当前亮度和目标亮度，以及亮度进度条
 - **🔦 手电筒按钮**（左下角）：一键开启/关闭手电筒
 - **📞 紧急电话按钮**（右下角）：打开拨号盘拨打紧急电话
-- 除手电筒和紧急电话外，所有触摸操作、返回键、Home 键、最近任务键均被拦截
+- 除手电筒和紧急电话外，所有触摸操作均被遮罩层拦截
 
 ### 稳定运行设置
 
@@ -221,13 +221,13 @@ app/src/main/res/
 | --------------------- | ----- |
 | JDK                   | 1.8+  |
 | Android SDK           | 34    |
-| Gradle                | 8.0   |
+| Gradle                | 8.5   |
 | Kotlin                | 1.9.0 |
 | Android Gradle Plugin | 8.1.0 |
 
 ### 使用 Android Studio
 
-1. 克隆项目并打开 `DontPlayInTheDark` 目录
+1. 克隆项目并打开 `eyeguard` 目录
 2. 修改 `local.properties`，设置你的 SDK 路径：
    ```
    sdk.dir=C:\\Users\\<用户名>\\AppData\\Local\\Android\\Sdk
@@ -248,7 +248,7 @@ cd eyeguard
 ./gradlew assembleRelease
 
 # 安装到设备
-adb install app/build/outputs/apk/debug/app-debug.apk
+adb install app/build/outputs/apk/debug/eyeguard_v1.0.0_debug.apk
 ```
 
 ## 注意事项
