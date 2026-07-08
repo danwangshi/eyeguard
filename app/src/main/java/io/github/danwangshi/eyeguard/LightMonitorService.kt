@@ -19,7 +19,6 @@ import android.os.IBinder
 import android.os.PowerManager
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
-import android.util.Log
 import androidx.core.app.NotificationCompat
 
 /**
@@ -178,7 +177,7 @@ class LightMonitorService : Service(), SensorEventListener {
 
         // 检查是否有光线传感器
         if (lightSensor == null) {
-            Log.e(TAG, "设备没有光线传感器")
+            AppLog.e(TAG, "设备没有光线传感器")
             stopSelf()
             return
         }
@@ -353,7 +352,7 @@ class LightMonitorService : Service(), SensorEventListener {
     internal fun setupPhoneStateListener() {
         // 检查是否有电话状态权限
         if (checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            Log.w(TAG, "没有READ_PHONE_STATE权限，无法监听通话状态")
+            AppLog.w(TAG, "没有READ_PHONE_STATE权限，无法监听通话状态")
             return
         }
 
