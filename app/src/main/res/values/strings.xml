@@ -42,7 +42,7 @@
 
     <!-- 通知 -->
     <string name="notification_channel_name">光线监测</string>
-    <string name="notification_title">不要关灯玩手机</string>
+    <string name="notification_title">护眼监测中</string>
     <string name="notification_content">正在监测环境光线，当前亮度：%d lux</string>
     <string name="notification_locked">光线太暗，手机已锁定</string>
 
