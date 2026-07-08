@@ -251,11 +251,13 @@ class LightMonitorService : Service(), SensorEventListener {
 
     /**
      * 暂停监测（息屏时调用）
-     * 隐藏遮罩层、暂停传感器、释放 WakeLock
+     * 仅暂停传感器和释放 WakeLock，保持锁定状态不变
+     * 亮屏后由 resumeMonitoring → checkLockState 根据新传感器数据决定解锁
      */
     private fun pauseMonitoring() {
-        // 回到 IDLE 状态，清除所有定时器
-        transitionToIdle()
+        // 注意：不调用 transitionToIdle()，保持 isLocked 和 currentState 不变
+        // 息屏时遮罩层由系统自动隐藏，无需手动移除
+        // 亮屏后 checkLockState() 会根据新的传感器数据决定是否解锁
 
         // 取消传感器监听，节省电量
         sensorManager.unregisterListener(this)
@@ -273,7 +275,7 @@ class LightMonitorService : Service(), SensorEventListener {
 
     /**
      * 恢复监测（亮屏解锁后调用）
-     * 重新获取 WakeLock、注册传感器、根据当前光线状态判断
+     * 重新获取 WakeLock、注册传感器、根据当前光线状态判断是否解锁
      */
     private fun resumeMonitoring() {
         // 重新获取 WakeLock
@@ -295,6 +297,9 @@ class LightMonitorService : Service(), SensorEventListener {
         AppLog.d(TAG, "传感器监听已恢复")
 
         // 恢复后立即检查当前光线状态
+        // 如果亮屏后光线已高于阈值，checkLockState 会解锁并移除遮罩层
+        // 如果光线仍低于阈值，保持锁定状态
+        AppLog.d(TAG, "[恢复监测] isLocked=$isLocked, currentState=$currentState, currentLux=$currentLux, threshold=$currentThreshold")
         checkLockState()
     }
 
