@@ -8,6 +8,9 @@ import android.graphics.PixelFormat
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
+import android.content.ComponentCallbacks2
+import android.content.res.Configuration
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
@@ -28,7 +31,7 @@ import android.widget.TextView
  * 显示全屏悬浮窗，拦截所有触摸事件
  * 注意：光线传感器监听由 LightMonitorService 统一管理，本服务不再独立注册
  */
-class LockOverlayService : Service() {
+class LockOverlayService : Service(), ComponentCallbacks2 {
 
     companion object {
         private const val TAG = "LockOverlayService"
@@ -90,6 +93,10 @@ class LockOverlayService : Service() {
 
     // 语音播报 MediaPlayer（播放 res/raw 音频文件）
     private var mediaPlayer: MediaPlayer? = null
+    // 音量临时调高标记，用于服务销毁时恢复原音量
+    private var volumeWasBoosted = false
+    private var previousVolume = -1
+    private var previousMaxVolume = -1
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -155,14 +162,37 @@ class LockOverlayService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
+    /**
+     * 系统内存不足时释放缓存的遮罩层 View
+     */
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        if (level >= TRIM_MEMORY_MODERATE && !isShowing) {
+            overlayView = null
+            layoutParams = null
+            AppLog.d(TAG, "系统内存紧张，释放缓存的遮罩层 View")
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {}
+    override fun onLowMemory() {
+        if (!isShowing) {
+            overlayView = null
+            layoutParams = null
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         AppLog.d(TAG, "onDestroy")
         removeLockOverlay()
+        unregisterTorchCallback()
         // 释放 MediaPlayer 资源
         mediaPlayer?.release()
         mediaPlayer = null
-        AppLog.d(TAG, "MediaPlayer 资源已释放")
+        // 恢复音量
+        restoreOriginalVolume()
+        AppLog.d(TAG, "资源已释放，音量已恢复")
     }
 
     /**
@@ -400,8 +430,26 @@ class LockOverlayService : Service() {
     }
 
     /**
+     * 恢复原始媒体音量（用于播报完成或服务销毁时）
+     */
+    private fun restoreOriginalVolume() {
+        if (volumeWasBoosted && previousVolume >= 0) {
+            try {
+                val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, previousVolume, 0)
+                AppLog.d(TAG, "音量已恢复: $previousVolume")
+            } catch (e: Exception) {
+                AppLog.w(TAG, "音量恢复失败: ${e.message}")
+            }
+            volumeWasBoosted = false
+            previousVolume = -1
+            previousMaxVolume = -1
+        }
+    }
+
+    /**
      * 播放锁定提示语音
-     * 从预置音频文件播放，不依赖系统 TTS
+     * 播报前临时调大媒体音量，播报完成后恢复原音量
      */
     private fun playLockAudio() {
         try {
@@ -409,6 +457,27 @@ class LockOverlayService : Service() {
                 mediaPlayer = MediaPlayer.create(this, R.raw.lock_tts)
             }
             mediaPlayer?.let { mp ->
+                // 获取 AudioManager
+                val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+                val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+                val currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+                // 临时将音量调到 50%，保证能听到又不吓人
+                val targetVolume = (maxVolume * 0.5f).toInt().coerceAtLeast(1)
+                if (currentVolume < targetVolume) {
+                    audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, targetVolume, 0)
+                    volumeWasBoosted = true
+                    previousVolume = currentVolume
+                    previousMaxVolume = maxVolume
+                    AppLog.d(TAG, "临时调大音量: $currentVolume → $targetVolume (最大 $maxVolume)")
+
+                    // 播报完成后恢复原音量
+                    mp.setOnCompletionListener { mp2 ->
+                        restoreOriginalVolume()
+                        mp2.setOnCompletionListener(null)
+                    }
+                }
+
                 if (mp.isPlaying) {
                     mp.seekTo(0)  // 如果正在播放，从头重播
                 } else {

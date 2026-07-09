@@ -21,41 +21,59 @@
 
     <!-- 主界面 -->
     <string name="main_title">护眼保护</string>
-    <string name="main_status_running">正在运行</string>
-    <string name="main_status_stopped">已停止</string>
-    <string name="main_current_lux">当前环境亮度</string>
     <string name="main_threshold">锁定阈值</string>
-
-    <!-- 阈值设置 -->
-    <string name="threshold_strict">严格 (50 lux)</string>
-    <string name="threshold_normal">标准 (100 lux)</string>
-    <string name="threshold_loose">宽松 (200 lux)</string>
     <string name="threshold_desc">环境亮度低于此值时将锁定手机</string>
+    <string name="main_hint">开启权限后点击「运行」，当环境光线变暗时，手机会自动锁定。</string>
+    <string name="sensor_raw">原始值</string>
+    <string name="sensor_smoothed">平滑值</string>
+    <string name="sensor_hint_blocked">提示：若读数长期为 0，请检查手机壳或钢化膜是否遮挡了顶部听筒旁的光线传感器。</string>
+    <string name="unit_lux">lux</string>
+    <string name="tap_to_input">点击输入</string>
+    <string name="threshold_reference">参考：关灯(0-10) 昏暗(10-50) 开灯(50-200) 明亮(300+)</string>
 
     <!-- 权限 -->
-    <string name="permission_overlay_title">需要悬浮窗权限</string>
-    <string name="permission_overlay_desc">此权限用于在暗光环境下显示锁定界面，阻止继续使用手机。</string>
-    <string name="permission_accessibility_title">需要无障碍权限</string>
-    <string name="permission_accessibility_desc">此权限用于检测窗口变化，确保锁定有效。</string>
+    <string name="permission_welcome">欢迎使用</string>
+    <string name="permission_intro">为了保护您的视力，请开启以下权限</string>
+    <string name="permission_overlay_label">悬浮窗权限</string>
+    <string name="permission_accessibility_label">无障碍权限</string>
+    <string name="permission_all_ready">所有权限已就绪，进入应用</string>
     <string name="permission_grant">去开启</string>
-    <string name="permission_later">稍后再说</string>
 
     <!-- 通知 -->
     <string name="notification_channel_name">光线监测</string>
-    <string name="notification_title"></string>
+    <string name="notification_title">护眼保护</string>
     <string name="notification_content">正在监测环境光线，当前亮度：%d lux</string>
     <string name="notification_locked">光线太暗，手机已锁定</string>
 
-    <!-- 帮助 -->
-    <string name="help_title">使用帮助</string>
-    <string name="help_step1">1. 开启悬浮窗权限</string>
-    <string name="help_step2">2. 开启无障碍权限</string>
-    <string name="help_step3">3. 点击"运行"</string>
-    <string name="help_step4">4. 当环境变暗时，手机会自动锁定</string>
-    <string name="help_step5">5. 开灯后，手机自动解锁</string>
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="debounce_title">防抖延迟触发</string>
+    <string name="debounce_desc">光线低于阈值持续 3 秒才锁定，高于阈值持续 3 秒才解锁，避免频繁触发</string>
+    <string name="schedule_title">定时启用</string>
+    <string name="schedule_desc">在设定的时间段内自动启用护眼保护</string>
+    <string name="schedule_start">开始时间</string>
+    <string name="schedule_end">结束时间</string>
+    <string name="stable_settings_title">稳定运行设置指引</string>
+    <string name="stable_settings_desc">后台运行、电池优化、启动管理等</string>
+    <string name="stable_settings_subtitle">按照以下步骤进行设置，避免系统后台清理</string>
+    <string name="stable_settings_ensure_run">确保应用持续运行</string>
+    <string name="stable_settings_footer_hint">提示：不同品牌手机设置路径可能略有差异，请根据实际系统版本调整</string>
+
+    <!-- 稳定运行步骤 -->
+    <string name="step1_title">① 允许后台运行</string>
+    <string name="step1_path">设置 → 应用 → 不要关灯玩手机 → 电池 → 允许后台活动</string>
+    <string name="step2_title">② 忽略电池优化</string>
+    <string name="step2_path">设置 → 电池 → 更多设置 → 休眠时始终保持网络连接\n或：设置 → 应用 → 不要关灯玩手机 → 电池 → 无限制</string>
+    <string name="step3_title">③ 后台管理</string>
+    <string name="step3_path">设置 → 应用 → 启动管理 → 找到「不要关灯玩手机」\n关闭自动管理 → 手动开启自启动、关联启动、后台运行</string>
+    <string name="step4_title">④ 应用后台锁定</string>
+    <string name="step4_path">最近任务 → 长按「不要关灯玩手机」卡片 → 点击锁图标（或下拉卡片锁定）</string>
+    <string name="step5_title">⑤ 关闭省电模式</string>
+    <string name="step5_path">设置 → 电池 → 关闭省电模式\n或从顶部状态栏下拉，关闭省电模式开关</string>
+    <string name="action_jump">跳转 ›</string>
+    <string name="action_view">查看 ›</string>
 
     <!-- 关于 -->
     <string name="about_title">关于</string>
-    <string name="about_desc">此应用旨在帮助用户在暗光环境下保护视力。当检测到环境光线不足时，会锁定手机直到光线恢复。</string>
-
+    <string name="app_version">版本 1.1.2</string>
 </resources>

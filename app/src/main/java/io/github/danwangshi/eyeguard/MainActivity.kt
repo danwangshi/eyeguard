@@ -15,6 +15,7 @@ import android.os.IBinder
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SeekBar
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         private const val TAG = "MainActivity"
         private const val REQUEST_OVERLAY_PERMISSION = 1001
         private const val REQUEST_ACCESSIBILITY_PERMISSION = 1002
-        private const val REQUEST_PHONE_STATE_PERMISSION = 1003
         private const val REQUEST_POST_NOTIFICATIONS = 1004
         private const val REQUEST_CAMERA = 1005
     }
@@ -59,18 +59,28 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var tvThresholdValue: TextView
     private lateinit var seekbarThreshold: SeekBar
     private lateinit var btnToggle: Button
-    private lateinit var btnStableSettings: Button
-    private lateinit var switchDebounce: SwitchCompat
+    private lateinit var btnSettings: ImageButton
 
     private lateinit var prefs: android.content.SharedPreferences
 
     private var lightMonitorService: LightMonitorService? = null
     private var isBound = false
 
-    // 光线传感器
+    // 光线传感器（独立于 LightMonitorService，用于 UI 实时显示）
     private var sensorManager: SensorManager? = null
     private var lightSensor: Sensor? = null
     private lateinit var tvRealtimeLux: TextView
+    // 传感器诊断 UI
+    private lateinit var tvRawLux: TextView
+    private lateinit var tvSmoothedLux: TextView
+    private lateinit var tvDiagnosticHint: TextView
+    // 本地 EMA 平滑计算（独立于服务，仅用于诊断展示）
+    private var localSmoothedLux = 0f
+    private var localHasSmoothed = false
+    private val SMOOTHING_ALPHA = 0.5f
+    // 连续零值计数，用于检测传感器遮挡
+    private var consecutiveZeroCount = 0
+    private val ZERO_THRESHOLD = 10  // 连续 10 次读到 0 视为遮挡
 
     // 服务连接
     private val serviceConnection = object : android.content.ServiceConnection {
@@ -107,6 +117,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // 初始化文件日志（如果已启用），确保 MainActivity 打开时也有日志
+        AppLog.init(this)
 
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
 
@@ -148,9 +161,61 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_LIGHT) {
-            val lux = event.values[0].toInt()
-            tvRealtimeLux.text = lux.toString()
+            val rawLux = event.values[0]
+            val rawLuxInt = rawLux.toInt()
+
+            // 更新主显示
+            tvRealtimeLux.text = rawLuxInt.toString()
+
+            // === 诊断面板计算 ===
+
+            // 本地 EMA 平滑（与 LightMonitorService 算法一致）
+            if (!localHasSmoothed) {
+                localHasSmoothed = true
+                localSmoothedLux = rawLux
+            } else {
+                localSmoothedLux = SMOOTHING_ALPHA * rawLux + (1 - SMOOTHING_ALPHA) * localSmoothedLux
+            }
+
+            // 更新诊断 UI
+            tvRawLux.text = rawLuxInt.toString()
+            tvSmoothedLux.text = String.format("%.0f", localSmoothedLux)
+
+            // 遮挡检测：连续零值计数
+            if (rawLuxInt == 0) {
+                consecutiveZeroCount++
+            } else {
+                consecutiveZeroCount = 0
+            }
+
+            // 更新传感器状态
+            updateSensorStatus(rawLuxInt)
         }
+    }
+
+    /**
+     * 更新传感器状态诊断（显示在 ActionBar 标题栏）
+     */
+    private fun updateSensorStatus(rawLux: Int) {
+        val statusText: String
+        val hintVisible: Boolean
+
+        if (consecutiveZeroCount >= ZERO_THRESHOLD && rawLux <= 4) {
+            statusText = "❌ 传感器被遮挡"
+            hintVisible = true
+        } else if (consecutiveZeroCount >= ZERO_THRESHOLD / 2 && rawLux == 0) {
+            statusText = "⚠️ 传感器疑似遮挡"
+            hintVisible = true
+        } else if (rawLux > 0) {
+            statusText = "✅ ${rawLux} lux"
+            hintVisible = false
+        } else {
+            statusText = "检测中..."
+            hintVisible = false
+        }
+
+        supportActionBar?.subtitle = statusText
+        tvDiagnosticHint.visibility = if (hintVisible) View.VISIBLE else View.GONE
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -180,8 +245,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         seekbarThreshold = findViewById(R.id.seekbar_threshold)
         tvRealtimeLux = findViewById(R.id.tv_realtime_lux)
         btnToggle = findViewById(R.id.btn_toggle)
-        btnStableSettings = findViewById(R.id.btn_stable_settings)
-        switchDebounce = findViewById(R.id.switch_debounce)
+        btnSettings = findViewById(R.id.btn_settings)
+
+        // 传感器诊断
+        tvRawLux = findViewById(R.id.tv_raw_lux)
+        tvSmoothedLux = findViewById(R.id.tv_smoothed_lux)
+        tvDiagnosticHint = findViewById(R.id.tv_diagnostic_hint)
 
         // 初始化光线传感器
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as? SensorManager
@@ -226,19 +295,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             }
         }
 
-        // 稳定运行设置指引按钮
-        btnStableSettings.setOnClickListener {
-            val intent = Intent(this, StableSettingsActivity::class.java)
+        // 右上角设置按钮 → 设置主页
+        btnSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
 
-        // 防抖延迟触发开关
-        switchDebounce.setOnCheckedChangeListener { _, isChecked ->
-            prefs.edit().putBoolean("debounce_enabled", isChecked).apply()
-            // 同步到服务（如果正在运行）
-            lightMonitorService?.setDebounceEnabled(isChecked)
-            AppLog.d(TAG, "防抖开关切换: $isChecked")
-        }
     }
 
     /**
@@ -277,13 +339,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun loadSettings() {
-        // 默认阈值使用 1 lux（仅极端黑暗环境触发），配合防抖避免误触发
         val thresholdValue = prefs.getInt("threshold_value", 1)
-        val debounceEnabled = prefs.getBoolean("debounce_enabled", false)
-        AppLog.d(TAG, "加载设置: threshold_value=$thresholdValue, debounce_enabled=$debounceEnabled")
+        AppLog.d(TAG, "加载设置: threshold_value=$thresholdValue")
         seekbarThreshold.progress = thresholdValue
         tvThresholdValue.text = thresholdValue.toString()
-        switchDebounce.isChecked = debounceEnabled
     }
 
     /**
@@ -368,15 +427,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             return
         }
 
-        // 请求通话状态权限（用于来电时自动隐藏遮罩层）
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-            != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.READ_PHONE_STATE),
-                REQUEST_PHONE_STATE_PERMISSION)
-            // 权限回调后继续启动，这里先不 return，允许其他功能正常运行
-        }
-
         // 请求通知权限（Android 13+ 前台服务通知需要）
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
@@ -435,16 +485,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            REQUEST_PHONE_STATE_PERMISSION -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    AppLog.d(TAG, "READ_PHONE_STATE 权限已授予")
-                    // 重新注册通话状态监听
-                    lightMonitorService?.setupPhoneStateListener()
-                } else {
-                    AppLog.d(TAG, "READ_PHONE_STATE 权限被拒绝，通话时遮罩层不会自动隐藏")
-                    Toast.makeText(this, "未授予通话权限，来电时遮罩层不会自动隐藏", Toast.LENGTH_LONG).show()
-                }
-            }
             REQUEST_POST_NOTIFICATIONS -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     AppLog.d(TAG, "POST_NOTIFICATIONS 权限已授予")

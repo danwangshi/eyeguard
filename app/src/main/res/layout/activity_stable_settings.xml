@@ -9,294 +9,304 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp">
 
         <!-- 标题 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="⚙️ 稳定运行设置指引"
-            android:textColor="@color/primary"
-            android:textSize="28sp"
+            android:text="@string/stable_settings_ensure_run"
+            android:textColor="@color/text_primary"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="为确保应用在后台持续稳定运行，请按照以下步骤进行设置"
+            android:layout_marginTop="6dp"
+            android:text="@string/stable_settings_subtitle"
             android:textColor="@color/text_secondary"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
-        <!-- 设置项列表 -->
-        <LinearLayout
+        <!-- ① 允许后台运行 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_background_run"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0.5dp"
+            app:cardBackgroundColor="@color/surface">
 
-            <!-- 1. 允许后台运行 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_background_run"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="① 允许后台运行"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_arrow_1"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:rotation="90"
-                            android:src="@android:drawable/ic_menu_more" />
-
-                    </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="设置「允许后台运行」\n\n操作路径：\n设置 → 应用 → 不要关灯玩手机 → 电池 → 允许后台活动"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:layout_weight="1"
+                        android:text="@string/step1_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_jump"
+                        android:textColor="@color/button_primary"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/step1_path"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="17sp" />
 
-            <!-- 2. 忽略电池优化 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_battery_optimization"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ② 忽略电池优化 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_battery_optimization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0.5dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="② 忽略电池优化"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_arrow_2"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:rotation="90"
-                            android:src="@android:drawable/ic_menu_more" />
-
-                    </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="找到「不要关灯玩手机」，设置「不优化」\n\n操作路径：\n设置 → 电池 → 更多电池设置 → 休眠时始终保持网络连接\n或：设置 → 应用 → 不要关灯玩手机 → 电池 → 无限制"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:layout_weight="1"
+                        android:text="@string/step2_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_jump"
+                        android:textColor="@color/button_primary"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="设置 → 电池 → 更多设置 → 休眠时始终保持网络连接\n或：设置 → 应用 → 不要关灯玩手机 → 电池 → 无限制"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="17sp" />
 
-            <!-- 3. 后台管理 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_background_management"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ③ 后台管理 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_background_management"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0.5dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="③ 后台管理"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_arrow_3"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:rotation="90"
-                            android:src="@android:drawable/ic_menu_more" />
-
-                    </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="耗电和后台-启动管理，关闭自动管理，允许自启动、关联启动、后台运行\n\n操作路径：\n设置 → 应用 → 启动管理 → 找到「不要关灯玩手机」→ 关闭自动管理 → 手动开启所有权限"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:layout_weight="1"
+                        android:text="@string/step3_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_jump"
+                        android:textColor="@color/button_primary"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="设置 → 应用 → 启动管理 → 找到「不要关灯玩手机」\n关闭自动管理 → 手动开启自启动、关联启动、后台运行"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="17sp" />
 
-            <!-- 4. 应用后台锁定 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_app_lock"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ④ 应用后台锁定 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_app_lock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0.5dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="④ 应用后台锁定"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_arrow_4"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:rotation="90"
-                            android:src="@android:drawable/ic_menu_more" />
-
-                    </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="进入「后台管理」，下滑「不要关灯玩手机」，锁定\n\n操作路径：\n最近任务 → 长按「不要关灯玩手机」卡片 → 点击锁图标（或下拉卡片）"
+                        android:layout_weight="1"
+                        android:text="@string/step4_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_view"
                         android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/step4_path"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="17sp" />
 
-            <!-- 5. 关闭省电模式 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_battery_saver"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ⑤ 关闭省电模式 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_battery_saver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0.5dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="⑤ 关闭省电模式"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_arrow_5"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:rotation="90"
-                            android:src="@android:drawable/ic_menu_more" />
-
-                    </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="关闭「省电模式」\n\n操作路径：\n设置 → 电池 → 关闭省电模式\n或从顶部状态栏下拉，关闭省电模式开关"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:layout_weight="1"
+                        android:text="@string/step5_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_jump"
+                        android:textColor="@color/button_primary"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="设置 → 电池 → 关闭省电模式\n或从顶部状态栏下拉，关闭省电模式开关"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="17sp" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <!-- 底部提示 -->
         <TextView
@@ -305,9 +315,10 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
             android:gravity="center"
-            android:text=" 提示：不同品牌手机设置路径可能略有差异，请根据实际系统版本调整"
-            android:textColor="@color/text_secondary"
-            android:textSize="16sp" />
+            android:text="@string/stable_settings_footer_hint"
+            android:textColor="@color/text_gray"
+            android:textSize="17sp"
+            android:lineSpacingExtra="3dp" />
 
     </LinearLayout>
 

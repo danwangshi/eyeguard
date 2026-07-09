@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="#757575" />
-    <size android:width="72dp" android:height="72dp" />
+    <solid android:color="@color/button_success" />
+    <size
+        android:width="72dp"
+        android:height="72dp" />
 </shape>

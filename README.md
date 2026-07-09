@@ -230,7 +230,7 @@ app/src/main/res/
 
 | 依赖                  | 版本  |
 | --------------------- | ----- |
-| JDK                   | 1.8+  |
+| JDK                   | 1.8+ (AGP 8.x 编译需 JDK 17+，但 JVM 目标为 1.8) |
 | Android SDK           | 34    |
 | Gradle                | 8.5   |
 | Kotlin                | 1.9.0 |
@@ -238,7 +238,13 @@ app/src/main/res/
 
 ### 使用 Android Studio
 
-1. 克隆项目并打开 `eyeguard` 目录
+1. 克隆项目并打开项目目录
+2. 修改 `local.properties`，设置你的 SDK 路径：
+   ```
+   sdk.dir=C:\\Users\\<用户名>\\AppData\\Local\\Android\\Sdk
+   ```
+3. 点击 **Build > Build Bundle(s) / APK(s) > Build APK(s)**
+4. APK 将生成在 `app/build/outputs/apk/debug/` 目录
 2. 修改 `local.properties`，设置你的 SDK 路径：
    ```
    sdk.dir=C:\\Users\\<用户名>\\AppData\\Local\\Android\\Sdk
@@ -250,16 +256,19 @@ app/src/main/res/
 
 ```bash
 # 进入项目目录
-cd eyeguard
+cd DontPlayInTheDark
 
-# 构建 Debug APK
+# 构建 Debug APK（带有详细日志，适合调试）
 ./gradlew assembleDebug
 
-# 构建 Release APK
+# 构建 Release APK（启用混淆缩减，使用 debug 签名，适合分发测试）
 ./gradlew assembleRelease
 
 # 安装到设备
-adb install app/build/outputs/apk/release/eyeguard_v1.1.1_release.apk
+adb install app/build/outputs/apk/debug/eyeguard_v1.1.1_debug.apk
+
+# 注意：Release APK 默认使用 debug keystore 签名。
+# 正式发布前请在 app/build.gradle 中配置正式的签名信息。
 ```
 
 ## 注意事项

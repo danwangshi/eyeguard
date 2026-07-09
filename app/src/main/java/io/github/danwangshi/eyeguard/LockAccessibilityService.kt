@@ -229,7 +229,7 @@ class LockAccessibilityService : AccessibilityService() {
                packageName.contains("dialer") ||
                packageName.contains("contacts") ||
                packageName.contains("messaging") ||
-               packageName.contains("phone")
+               packageName == "com.android.phone"
     }
 
     /**
