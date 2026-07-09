@@ -51,3 +51,31 @@ logs/
 # Screenshots and UI dumps
 screenshot_*.png
 ui*.xml
+
+# IDE
+*.iml
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Local
+local.properties
+*.keystore
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
