@@ -61,9 +61,11 @@ class SettingsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "设置"
 
-        // 绑定服务以同步设置
-        if (LightMonitorService.isRunning) {
+        // 绑定服务以同步设置（服务由主界面自动启动，始终处于运行状态）
+        try {
             bindService(Intent(this, LightMonitorService::class.java), serviceConnection, Context.BIND_AUTO_CREATE)
+        } catch (e: Exception) {
+            AppLog.w(TAG, "绑定服务失败: ${e.message}")
         }
 
         initViews()
@@ -232,7 +234,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun buildAboutContent(): String {
         return """
-应用版本：1.1.2 (Build 3)
+应用版本：1.2.0 (Build 4)
 开发者：danwangshimoluo
 开源协议：MIT License
 

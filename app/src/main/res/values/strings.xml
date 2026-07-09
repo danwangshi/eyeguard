@@ -16,14 +16,12 @@
     <string name="btn_flashlight">手电筒</string>
     <string name="btn_emergency">紧急电话</string>
     <string name="btn_settings">设置</string>
-    <string name="btn_start">运行</string>
-    <string name="btn_stop">停止</string>
 
     <!-- 主界面 -->
     <string name="main_title">护眼保护</string>
     <string name="main_threshold">锁定阈值</string>
     <string name="threshold_desc">环境亮度低于此值时将锁定手机</string>
-    <string name="main_hint">开启权限后点击「运行」，当环境光线变暗时，手机会自动锁定。</string>
+    <string name="main_hint">应用启动后自动运行护眼保护，当环境光线变暗时，手机会自动锁定。你可以在设置中配置定时启用时间段。</string>
     <string name="sensor_raw">原始值</string>
     <string name="sensor_smoothed">平滑值</string>
     <string name="sensor_hint_blocked">提示：若读数长期为 0，请检查手机壳或钢化膜是否遮挡了顶部听筒旁的光线传感器。</string>
@@ -75,5 +73,5 @@
 
     <!-- 关于 -->
     <string name="about_title">关于</string>
-    <string name="app_version">版本 1.1.2</string>
+    <string name="app_version">版本 1.2.0</string>
 </resources>

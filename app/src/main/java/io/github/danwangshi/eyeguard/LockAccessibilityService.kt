@@ -2,6 +2,7 @@ package io.github.danwangshi.eyeguard
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
+import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 
 /**
@@ -94,6 +95,11 @@ class LockAccessibilityService : AccessibilityService() {
     private var lastContentChangedTime = 0L
     private val CONTENT_CHANGED_THROTTLE_MS = 2000L
 
+    // 离开电话应用后延迟恢复遮罩的防抖（避免短暂操作如下拉通知栏后误触发）
+    private val overlayRestoreHandler = android.os.Handler(android.os.Looper.getMainLooper())
+    private var overlayRestoreRunnable: Runnable? = null
+    private val OVERLAY_RESTORE_DEBOUNCE_MS = 3000L
+
     override fun onServiceConnected() {
         super.onServiceConnected()
         AppLog.d(TAG, "无障碍服务已连接")
@@ -110,16 +116,17 @@ class LockAccessibilityService : AccessibilityService() {
                 AppLog.d(TAG, "窗口变化: $packageName / $className")
 
                 // === 电话应用检测（优先级最高，不受 isLocked 限制）===
-
-                // 兜底：检查电话应用标记是否已超时
-                LockOverlayService.checkPhoneAppTimeout()
-
-                // 检测是否是电话相关应用（拨号器、通话界面）
                 if (isPhoneRelated(packageName)) {
+                    // 取消待处理的遮罩恢复（如果之前短暂离开了电话应用）
+                    cancelPendingOverlayRestore()
+
                     if (isLocked && !LockOverlayService.isPhoneAppActive) {
                         AppLog.d(TAG, "电话应用在前台: $packageName，隐藏遮罩层")
                         LockOverlayService.isPhoneAppActive = true
                     }
+                    // 电话应用在前台期间，持续刷新超时时间戳
+                    // 避免通话中因 60 秒超时误重置而重新弹出遮罩层
+                    LockOverlayService.refreshPhoneAppTime()
                     // 移除遮罩层 UI（不改变 isLocked）
                     if (LockOverlayService.isShowing) {
                         val intent = Intent(this, LockOverlayService::class.java).apply {
@@ -131,15 +138,35 @@ class LockAccessibilityService : AccessibilityService() {
                     return
                 }
 
-                // 如果之前在电话中，现在切换到非电话应用，重置标记并恢复遮罩
+                // 如果之前在电话中，现在切换到非电话应用，重置标记并延迟恢复遮罩
                 if (LockOverlayService.isPhoneAppActive) {
-                    AppLog.d(TAG, "离开电话应用，重置标记并恢复遮罩")
+                    AppLog.d(TAG, "离开电话应用，重置标记")
                     LockOverlayService.clearPhoneAppActive()
-                    // 离开电话应用后，如果 App 仍处于锁定状态，立即恢复遮罩层
-                    // 无论目标应用是否为白名单，都需重新显示遮罩
+                    // 延迟恢复遮罩层（防抖），避免短暂操作（如下拉通知栏）后误触发
+                    // 如果 3 秒内回到电话应用，取消待处理的遮罩恢复
                     if (isLocked) {
-                        AppLog.d(TAG, "离开电话应用，回归锁定状态，恢复遮罩层")
-                        restartLockOverlay()
+                        AppLog.d(TAG, "离开电话应用，延迟 ${OVERLAY_RESTORE_DEBOUNCE_MS}ms 后恢复遮罩层")
+                        overlayRestoreRunnable = Runnable {
+                            overlayRestoreRunnable = null
+                            // 防抖到期后，再次确认前台是否已回到电话应用
+                            // 通知栏松手后可能不触发窗口变化事件，用 getWindows() 主动检查
+                            if (isPhoneAppStillForeground()) {
+                                AppLog.d(TAG, "防抖结束但电话应用仍在前台，跳过遮罩恢复")
+                                // 重新标记电话应用活跃，确保后续 checkLight 跳过锁定
+                                LockOverlayService.isPhoneAppActive = true
+                                // 确保遮罩层已被移除（通知栏下拉时可能已移除）
+                                if (LockOverlayService.isShowing) {
+                                    val removeIntent = Intent(this@LockAccessibilityService, LockOverlayService::class.java).apply {
+                                        action = LockOverlayService.ACTION_REMOVE_LOCK
+                                    }
+                                    startService(removeIntent)
+                                }
+                            } else {
+                                AppLog.d(TAG, "防抖结束，恢复遮罩层")
+                                restartLockOverlay()
+                            }
+                        }
+                        overlayRestoreHandler.postDelayed(overlayRestoreRunnable!!, OVERLAY_RESTORE_DEBOUNCE_MS)
                         return
                     }
                 }
@@ -190,6 +217,11 @@ class LockAccessibilityService : AccessibilityService() {
 
                 // 窗口内容变化时，如果锁定界面未显示，确保锁定界面存在
                 if (!LockOverlayService.isShowing) {
+                    // 如果正在「离开电话应用」的防抖等待期内，不立即恢复遮罩
+                    if (overlayRestoreRunnable != null) {
+                        AppLog.d(TAG, "窗口内容变化但防抖期内，跳过遮罩恢复")
+                        return
+                    }
                     AppLog.d(TAG, "检测到窗口内容变化且锁定界面未显示，重新显示")
                     restartLockOverlay()
                 }
@@ -247,6 +279,33 @@ class LockAccessibilityService : AccessibilityService() {
         // 发送广播给 LightMonitorService 让其重新检查光线和锁定状态
         val intent = Intent("io.github.danwangshi.eyeguard.ACTION_CHECK_LOCK")
         sendBroadcast(intent)
+    }
+
+    /**
+     * 取消待处理的遮罩恢复（离开电话应用防抖）
+     */
+    private fun cancelPendingOverlayRestore() {
+        overlayRestoreRunnable?.let {
+            overlayRestoreHandler.removeCallbacks(it)
+            overlayRestoreRunnable = null
+        }
+    }
+
+    /**
+     * 检查当前前台窗口是否仍是电话应用
+     * 用于防抖到期时确认用户确实离开了电话应用
+     */
+    private fun isPhoneAppStillForeground(): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val windows = windows ?: return false
+            for (windowInfo in windows) {
+                if (windowInfo.isActive) {
+                    val pkg = windowInfo.root?.packageName?.toString() ?: continue
+                    return isPhoneRelated(pkg)
+                }
+            }
+        }
+        return false
     }
 
     /**

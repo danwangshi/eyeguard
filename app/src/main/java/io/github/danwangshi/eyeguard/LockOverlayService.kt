@@ -59,6 +59,16 @@ class LockOverlayService : Service(), ComponentCallbacks2 {
         private const val PHONE_APP_TIMEOUT_MS = 60_000L
 
         /**
+         * 刷新电话应用活跃时间戳
+         * 由无障碍服务每次检测到电话应用在前台时调用，避免超时误重置
+         */
+        fun refreshPhoneAppTime() {
+            if (isPhoneAppActive) {
+                phoneAppActiveTime = System.currentTimeMillis()
+            }
+        }
+
+        /**
          * 电话应用离开前台，重置标记
          */
         fun clearPhoneAppActive() {

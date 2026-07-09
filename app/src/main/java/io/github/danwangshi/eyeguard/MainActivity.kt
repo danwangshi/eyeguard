@@ -1,9 +1,7 @@
 package io.github.danwangshi.eyeguard
 
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -11,7 +9,6 @@ import android.hardware.SensorManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.IBinder
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
@@ -23,13 +20,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SwitchCompat
 import android.widget.EditText
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 
 /**
  * 主界面 - 包含权限引导和护眼配置
@@ -58,13 +52,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     // 主设置组件
     private lateinit var tvThresholdValue: TextView
     private lateinit var seekbarThreshold: SeekBar
-    private lateinit var btnToggle: Button
     private lateinit var btnSettings: ImageButton
 
     private lateinit var prefs: android.content.SharedPreferences
-
-    private var lightMonitorService: LightMonitorService? = null
-    private var isBound = false
 
     // 光线传感器（独立于 LightMonitorService，用于 UI 实时显示）
     private var sensorManager: SensorManager? = null
@@ -82,36 +72,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private var consecutiveZeroCount = 0
     private val ZERO_THRESHOLD = 10  // 连续 10 次读到 0 视为遮挡
 
-    // 服务连接
-    private val serviceConnection = object : android.content.ServiceConnection {
-        override fun onServiceConnected(name: android.content.ComponentName?, service: IBinder?) {
-            val binder = service as LightMonitorService.LocalBinder
-            lightMonitorService = binder.getService()
-            isBound = true
-            AppLog.d(TAG, "Service connected")
-        }
-
-        override fun onServiceDisconnected(name: android.content.ComponentName?) {
-            lightMonitorService = null
-            isBound = false
-            AppLog.d(TAG, "Service disconnected")
-        }
-    }
-
-    // 广播接收器
-    private val serviceReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            when (intent.action) {
-                LightMonitorService.ACTION_START -> {
-                    updateProtectionUI(true)
-                }
-                LightMonitorService.ACTION_STOP -> {
-                    updateProtectionUI(false)
-                }
-            }
-        }
-    }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,24 +87,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         setupListeners()
         loadSettings()
 
-        // 注册广播接收器
-        val filter = IntentFilter().apply {
-            addAction(LightMonitorService.ACTION_START)
-            addAction(LightMonitorService.ACTION_STOP)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(serviceReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
-        } else {
-            registerReceiver(serviceReceiver, filter)
-        }
+        // 应用启动时自动启动光线监测服务
+        autoStartService()
 
-        // 初始状态检查
+        // 检查权限状态
         checkPermissions()
-        updateProtectionUI(LightMonitorService.isRunning)
-
-        if (LightMonitorService.isRunning) {
-            bindMonitorService()
-        }
     }
 
     override fun onResume() {
@@ -224,8 +171,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        unregisterReceiver(serviceReceiver)
-        unbindMonitorService()
     }
 
     private fun initViews() {
@@ -244,7 +189,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         tvThresholdValue = findViewById(R.id.tv_threshold_value)
         seekbarThreshold = findViewById(R.id.seekbar_threshold)
         tvRealtimeLux = findViewById(R.id.tv_realtime_lux)
-        btnToggle = findViewById(R.id.btn_toggle)
         btnSettings = findViewById(R.id.btn_settings)
 
         // 传感器诊断
@@ -278,22 +222,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 if (fromUser) {
                     AppLog.d(TAG, "用户调整阈值: $progress")
                     prefs.edit().putInt("threshold_value", progress).apply()
-                    // 如果服务正在运行，同步更新服务的阈值
-                    lightMonitorService?.updateThreshold(progress.toFloat())
                 }
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
-
-        // 运行/停止切换按钮
-        btnToggle.setOnClickListener {
-            if (LightMonitorService.isRunning) {
-                stopProtection()
-            } else {
-                startProtection()
-            }
-        }
 
         // 右上角设置按钮 → 设置主页
         btnSettings.setOnClickListener {
@@ -326,8 +259,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                     seekbarThreshold.progress = input
                     // 保存设置
                     prefs.edit().putInt("threshold_value", input).apply()
-                    // 同步到服务
-                    lightMonitorService?.updateThreshold(input.toFloat())
                     AppLog.d(TAG, "用户手动输入阈值: $input")
                     Toast.makeText(this, "阈值已设置为 $input lux", Toast.LENGTH_SHORT).show()
                 } else {
@@ -339,7 +270,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun loadSettings() {
-        val thresholdValue = prefs.getInt("threshold_value", 1)
+        val thresholdValue = prefs.getInt("threshold_value", 0)
         AppLog.d(TAG, "加载设置: threshold_value=$thresholdValue")
         seekbarThreshold.progress = thresholdValue
         tvThresholdValue.text = thresholdValue.toString()
@@ -358,13 +289,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
         btnContinue.isEnabled = hasOverlay && hasAccessibility
 
-        // 如果权限不满足且当前不在设置界面，则显示引导页
+        // 如果权限不满足则显示引导页
         if (!(hasOverlay && hasAccessibility)) {
-            // 如果服务没跑，说明是新用户或权限被关了，显示引导
-            if (!LightMonitorService.isRunning) {
-                layoutPermissions.visibility = View.VISIBLE
-                layoutMainSettings.visibility = View.GONE
-            }
+            layoutPermissions.visibility = View.VISIBLE
+            layoutMainSettings.visibility = View.GONE
         } else {
             // 权限满足，如果是从引导页过来的，或者初始检查，确保主设置可见
             if (layoutPermissions.visibility == View.VISIBLE) {
@@ -421,65 +349,20 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             .show()
     }
 
-    private fun startProtection() {
-        if (!Settings.canDrawOverlays(this) || !isAccessibilityServiceEnabled()) {
-            checkPermissions()
-            return
+    /**
+     * 自动启动光线监测前台服务
+     * 应用只要存活就自动运行主体功能
+     */
+    private fun autoStartService() {
+        val intent = Intent(this, LightMonitorService::class.java).apply {
+            action = LightMonitorService.ACTION_START
         }
-
-        // 请求通知权限（Android 13+ 前台服务通知需要）
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                    REQUEST_POST_NOTIFICATIONS)
-            }
-        }
-
-        // 请求相机权限（用于手电筒功能）
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.CAMERA),
-                REQUEST_CAMERA)
-        }
-
-        val intent = Intent(this, LightMonitorService::class.java).apply { action = LightMonitorService.ACTION_START }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
-
-        bindMonitorService()
-        updateProtectionUI(true)
-        Toast.makeText(this, "护眼保护已启动", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun stopProtection() {
-        val intent = Intent(this, LightMonitorService::class.java).apply { action = LightMonitorService.ACTION_STOP }
-        startService(intent)
-        unbindMonitorService()
-        updateProtectionUI(false)
-        Toast.makeText(this, "护眼保护已停止", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun updateProtectionUI(isRunning: Boolean) {
-        if (isRunning) {
-            btnToggle.text = getString(R.string.btn_stop)
-            btnToggle.backgroundTintList = getColorStateList(R.color.accent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
         } else {
-            btnToggle.text = getString(R.string.btn_start)
-            btnToggle.backgroundTintList = getColorStateList(R.color.button_success)
+            startService(intent)
         }
-    }
-
-    private fun bindMonitorService() {
-        bindService(Intent(this, LightMonitorService::class.java), serviceConnection, Context.BIND_AUTO_CREATE)
-    }
-
-    private fun unbindMonitorService() {
-        if (isBound) {
-            unbindService(serviceConnection)
-            isBound = false
-        }
+        AppLog.d(TAG, "光线监测服务已自动启动")
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -342,20 +342,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- 运行/停止按钮 -->
-
             <!-- 提示 -->
-
-            <Button
-                android:id="@+id/btn_toggle"
-                style="@style/Widget.EyeGuard.Button.Primary"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/button_success"
-                android:text="@string/btn_start"
-                android:textColor="@color/text_white" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

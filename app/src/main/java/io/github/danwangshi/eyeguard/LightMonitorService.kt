@@ -8,7 +8,6 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -17,9 +16,7 @@ import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
-import android.telephony.PhoneStateListener
 import java.util.Calendar
-import android.telephony.TelephonyManager
 import androidx.core.app.NotificationCompat
 
 /**
@@ -101,10 +98,6 @@ class LightMonitorService : Service(), SensorEventListener {
 
     private val binder = LocalBinder()
 
-    // 电话状态监听
-    private var telephonyManager: TelephonyManager? = null
-    private var phoneStateListener: PhoneStateListener? = null
-
     // WakeLock 保持 CPU 唤醒，确保后台传感器事件正常投递
     private var wakeLock: PowerManager.WakeLock? = null
 
@@ -136,6 +129,12 @@ class LightMonitorService : Service(), SensorEventListener {
         cachedEndMinute = prefs.getInt("schedule_end_minute", 0)
     }
 
+    /** 从 SharedPreferences 重新读取阈值，确保 UI 调整及时生效 */
+    private fun reloadThreshold() {
+        currentThreshold = getSharedPreferences("settings", Context.MODE_PRIVATE)
+            .getInt("threshold_value", 0).toFloat()
+    }
+
     /** 判断当前时间是否在定时启用范围内 */
     private fun isWithinSchedule(): Boolean {
         if (!cachedScheduleEnabled) return true
@@ -152,85 +151,53 @@ class LightMonitorService : Service(), SensorEventListener {
         }
     }
 
-    /** 计算到下次定时窗口开启的分钟数 */
-    private fun minutesUntilNextWindow(): Int {
-        val now = Calendar.getInstance()
-        val currentMinutes = now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)
-        val startMinutes = cachedStartHour * 60 + cachedStartMinute
-        val endMinutes = cachedEndHour * 60 + cachedEndMinute
-        val dayMinutes = 24 * 60
+    /** 定时边界轮询（每 60 秒刷新缓存，确保准时进入/退出定时窗口） */
+    private var schedulePollRunnable: Runnable? = null
 
-        return if (startMinutes <= endMinutes) {
-            // 同天：08:00~18:00
-            if (currentMinutes < startMinutes) {
-                startMinutes - currentMinutes
-            } else {
-                (dayMinutes - currentMinutes) + startMinutes
+    private fun startSchedulePoll() {
+        stopSchedulePoll()
+        schedulePollRunnable = Runnable {
+            reloadScheduleCache()
+            // 如果当前在定时窗口内且光线不足，重新检查锁定状态
+            if (cachedScheduleEnabled && isWithinSchedule()) {
+                recheckAfterScheduleChange()
             }
-        } else {
-            // 跨天：22:00~06:00，当前一定不在窗口内（否则 isWithinSchedule 返回 true）
-            if (currentMinutes < startMinutes) {
-                startMinutes - currentMinutes
-            } else {
-                (dayMinutes - currentMinutes) + startMinutes
-            }
+            handler.postDelayed(schedulePollRunnable!!, 60_000L)
+        }
+        handler.postDelayed(schedulePollRunnable!!, 60_000L)
+        AppLog.d(TAG, "定时轮询已启动（60 秒间隔）")
+    }
+
+    private fun stopSchedulePoll() {
+        schedulePollRunnable?.let {
+            handler.removeCallbacks(it)
+            schedulePollRunnable = null
         }
     }
 
-    /** 定时唤醒任务 */
-    private var scheduleWakeRunnable: Runnable? = null
-
-    /** 取消定时唤醒 */
-    private fun cancelScheduleWake() {
-        scheduleWakeRunnable?.let { handler.removeCallbacks(it) }
-        scheduleWakeRunnable = null
+    /** 定时设置变更后重新检查锁定状态 */
+    private fun recheckAfterScheduleChange() {
+        if (!isScreenOn) return
+        if (hasSensorData) {
+            if (debounceEnabled) checkLight() else checkLockState()
+        }
     }
 
     /**
-     * 根据定时配置调整监测状态，返回是否在定时时间段内。
-     * - 在时间段内 / 定时未启用 → 确保监测运行
-     * - 不在时间段内 → 暂停监测（释放 WakeLock、注销传感器）+ 安排定时唤醒
+     * 判断当前是否在定时启用时间段内。
+     * 传感器监测始终运行（不因定时暂停），
+     * 仅通过返回值控制是否允许锁定/遮罩行为。
+     * - 定时未启用 → 始终返回 true（允许锁定）
+     * - 在时间段内 → 返回 true
+     * - 不在时间段内 → 返回 false（跳过锁定/遮罩，但监测持续运行，
+     *   进入时间段后 schedulePollRunnable 会刷新缓存并触发检查）
      */
     private fun applySchedule(): Boolean {
-        cancelScheduleWake()
+        if (!cachedScheduleEnabled) return true
+        if (isWithinSchedule()) return true
 
-        if (!cachedScheduleEnabled) {
-            ensureMonitoringActive()
-            return true
-        }
-
-        if (isWithinSchedule()) {
-            ensureMonitoringActive()
-            return true
-        }
-
-        // 不在时间段内 → 暂停监测
-        if (isRunning && isScreenOn && wakeLock != null) {
-            AppLog.d(TAG, "不在定时时间段内，暂停传感器监测以节省电量")
-            pauseMonitoring()
-        }
-        // 安排到期唤醒
-        val mins = minutesUntilNextWindow()
-        val delayMs = (mins * 60 * 1000L).coerceIn(60_000L, 24 * 60 * 60 * 1000L)
-        AppLog.d(TAG, "安排 ${mins} 分钟后定时唤醒 (${delayMs}ms)")
-        scheduleWakeRunnable = Runnable {
-            AppLog.d(TAG, "定时唤醒：进入监测时间段")
-            if (isRunning && isScreenOn) {
-                reloadScheduleCache()
-                resumeMonitoring()
-            }
-            scheduleWakeRunnable = null
-        }
-        handler.postDelayed(scheduleWakeRunnable!!, delayMs)
+        // 不在时间段内：监测持续运行，仅跳过锁定/遮罩
         return false
-    }
-
-    /** 确保监测处于运行状态（如果已暂停则恢复） */
-    private fun ensureMonitoringActive() {
-        if (isRunning && isScreenOn && wakeLock == null) {
-            AppLog.d(TAG, "恢复传感器监测")
-            resumeMonitoring()
-        }
     }
 
     // 传感器采样间隔（微秒）：2000ms，环境光变化缓慢，无需高频采样
@@ -260,10 +227,6 @@ class LightMonitorService : Service(), SensorEventListener {
         // 默认使用 1 lux（仅极端黑暗环境触发），配合防抖避免误触发
         currentThreshold = prefs.getInt("threshold_value", 1).toFloat()
         debounceEnabled = prefs.getBoolean("debounce_enabled", false)
-
-        // 初始化电话状态监听
-        telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        setupPhoneStateListener()
 
         // 加载定时缓存
         reloadScheduleCache()
@@ -351,6 +314,10 @@ class LightMonitorService : Service(), SensorEventListener {
 
         // 注册屏幕状态广播接收器
         registerScreenStateReceiver()
+
+        // 启动定时边界轮询（每 60 秒刷新缓存，确保准时进入/退出定时窗口）
+        startSchedulePoll()
+
         receiversRegistered = true
     }
 
@@ -489,6 +456,7 @@ class LightMonitorService : Service(), SensorEventListener {
      * - 非防抖模式：根据当前光线立即锁定/解锁
      */
     private fun postResumeLockCheck() {
+        reloadThreshold()
         if (isInCall || LockOverlayService.isPhoneAppActive) return
         if (!isScreenOn) return
 
@@ -503,10 +471,10 @@ class LightMonitorService : Service(), SensorEventListener {
             }
         } else {
             // 非防抖模式：立即检查
-            if (currentLux < currentThreshold && !isLocked) {
+            if (currentLux <= currentThreshold && !isLocked) {
                 AppLog.d(TAG, "[resume检查] 光线不足，执行锁定")
                 lockDevice()
-            } else if (currentLux >= currentThreshold && isLocked) {
+            } else if (currentLux > currentThreshold && isLocked) {
                 AppLog.d(TAG, "[resume检查] 光线充足，解除锁定")
                 unlockDevice()
             }
@@ -533,73 +501,12 @@ class LightMonitorService : Service(), SensorEventListener {
         }
     }
 
-    /**
-     * 设置电话状态监听器
-     */
-    internal fun setupPhoneStateListener() {
-        // 检查是否有电话状态权限
-        if (checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            AppLog.w(TAG, "没有READ_PHONE_STATE权限，无法监听通话状态")
-            return
-        }
-
-        phoneStateListener = object : PhoneStateListener() {
-            @Deprecated("Deprecated in Java")
-            override fun onCallStateChanged(state: Int, phoneNumber: String?) {
-                when (state) {
-                    TelephonyManager.CALL_STATE_IDLE -> {
-                        AppLog.d(TAG, "电话状态: 空闲")
-                        isInCall = false
-                        // 通话结束后，如果光线仍然不足，重新检查锁定状态
-                        if (isRunning) {
-                            checkLockState()
-                        }
-                    }
-                    TelephonyManager.CALL_STATE_RINGING -> {
-                        AppLog.d(TAG, "电话状态: 响铃")
-                        isInCall = true
-                        // 来电时移除遮罩层，让用户能接听
-                        if (isLocked) {
-                            removeOverlayForCall()
-                        }
-                    }
-                    TelephonyManager.CALL_STATE_OFFHOOK -> {
-                        AppLog.d(TAG, "电话状态: 通话中")
-                        isInCall = true
-                        // 通话中移除遮罩层
-                        if (isLocked) {
-                            removeOverlayForCall()
-                        }
-                    }
-                }
-            }
-        }
-
-        try {
-            telephonyManager?.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
-            AppLog.d(TAG, "电话状态监听已注册")
-        } catch (e: Exception) {
-            AppLog.w(TAG, "电话状态监听注册失败: ${e.message}")
-        }
-    }
-
-    /**
-     * 通话时移除遮罩层
-     */
-    private fun removeOverlayForCall() {
-        AppLog.d(TAG, "通话中，移除遮罩层")
-        val intent = Intent(this, LockOverlayService::class.java).apply {
-            action = LockOverlayService.ACTION_REMOVE_LOCK
-        }
-        startService(intent)
-    }
 
     /**
      * 停止监测
      */
     private fun stopMonitoring() {
         AppLog.d(TAG, "停止光线监测")
-        cancelScheduleWake()
 
         // 重置电话应用标记，避免下次启动时遮罩层无法显示
         LockOverlayService.clearPhoneAppActive()
@@ -613,13 +520,6 @@ class LightMonitorService : Service(), SensorEventListener {
             // 忽略未注册错误
         }
 
-        // 取消电话状态监听
-        try {
-            telephonyManager?.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE)
-        } catch (e: Exception) {
-            AppLog.w(TAG, "取消电话状态监听失败: ${e.message}")
-        }
-
         try {
             unregisterReceiver(lockCheckReceiver)
         } catch (e: Exception) {
@@ -630,6 +530,9 @@ class LightMonitorService : Service(), SensorEventListener {
         // 取消所有待处理的防抖动作，回到 IDLE 状态
         pendingLockCheck?.let { handler.removeCallbacks(it); pendingLockCheck = null }
         transitionToIdle()
+
+        // 停止定时边界轮询
+        stopSchedulePoll()
 
         // 释放 WakeLock
         wakeLock?.let { lock ->
@@ -693,6 +596,11 @@ class LightMonitorService : Service(), SensorEventListener {
                 smoothedLux = rawLux
             } else {
                 smoothedLux = SMOOTHING_ALPHA * rawLux + (1 - SMOOTHING_ALPHA) * smoothedLux
+                // 当原始光线为 0 且平滑值趋近于 0 时，直接归零
+                // 避免 EMA 平滑导致 0 lux 永远无法精确达到，使阈值为 0 时无法触发锁定
+                if (rawLux == 0f && smoothedLux < 0.5f) {
+                    smoothedLux = 0f
+                }
             }
             currentLux = smoothedLux
 
@@ -737,23 +645,20 @@ class LightMonitorService : Service(), SensorEventListener {
      * 单一调度入口，通过 when(当前状态) 分发逻辑
      */
     private fun checkLight() {
+        // 每次检查前重新读取阈值，确保用户实时调整生效
+        reloadThreshold()
+
         // 息屏状态下不执行状态机
         if (!isScreenOn) {
             return
         }
 
         // 通话中或电话应用在前台时，保持当前状态，不切换状态机
-        // 重要：不能调用 transitionToIdle()，因为它会 unlockDevice() 导致 isLocked=false
+        // 电话标记由无障碍服务管理（窗口变化检测），不在此处检查超时
+        // 避免通话中静态界面因 60 秒超时误清除标记导致遮罩弹出
         if (isInCall || LockOverlayService.isPhoneAppActive) {
-            // 检查电话应用标记是否已超时（兜底：无障碍服务未能检测离开拨号器时）
-            LockOverlayService.checkPhoneAppTimeout()
-            if (!isInCall && !LockOverlayService.isPhoneAppActive) {
-                // 超时已清除，重新检查锁定状态
-                AppLog.stateMachine("电话应用标记超时，恢复状态机检查")
-            } else {
-                AppLog.stateMachine("通话中或电话应用活跃，保持当前状态 (state=$currentState, isLocked=$isLocked)")
-                return
-            }
+            AppLog.stateMachine("通话中或电话应用活跃，保持当前状态 (state=$currentState, isLocked=$isLocked)")
+            return
         }
 
         // 定时调度检查：不在时间段内则暂停监测并安排唤醒
@@ -779,14 +684,14 @@ class LightMonitorService : Service(), SensorEventListener {
      * 这样避免了瞬时的光线波动（手遮挡、传感器噪声等）导致误锁定。
      */
     private fun handleIdleState() {
-        if (currentLux < currentThreshold) {
+        if (currentLux <= currentThreshold) {
             // 光线低于阈值，准备锁定
             if (lockRunnable == null) {
                 AppLog.stateMachine("[IDLE] 光线不足 (${currentLux}lux < ${currentThreshold}lux)，启动锁定倒计时 ${LOCK_DEBOUNCE_DELAY}ms")
                 lockRunnable = Runnable {
                     lockRunnable = null
                     // 重新检查当前光线值——如果倒计时期间光线已恢复，不锁定
-                    if (currentLux < currentThreshold) {
+                    if (currentLux <= currentThreshold) {
                         AppLog.stateMachine("[IDLE] 倒计时结束，光线仍然不足 (${currentLux}lux < ${currentThreshold}lux)，执行锁定")
                         performLock()
                     } else {
@@ -809,7 +714,7 @@ class LightMonitorService : Service(), SensorEventListener {
      * LOCKED 状态处理：遮罩层显示中，光线恢复立即解锁
      */
     private fun handleLockedState() {
-        if (currentLux >= currentThreshold) {
+        if (currentLux > currentThreshold) {
             // 光线恢复，立即解锁
             AppLog.stateMachine("[LOCKED] 光线恢复，立即解锁")
             performUnlock()
@@ -824,7 +729,7 @@ class LightMonitorService : Service(), SensorEventListener {
      */
     private fun handleCooldownState() {
         // 冷却期内记录光线状态，连续高于阈值则提前退出
-        if (currentLux < currentThreshold) {
+        if (currentLux <= currentThreshold) {
             lightBelowThresholdDuringCooldown = true
             cooldownAboveThresholdCount = 0
         } else {
@@ -879,12 +784,12 @@ class LightMonitorService : Service(), SensorEventListener {
             // 冷却结束后立即检查光线状态
             // 如果冷却期间光线曾低于阈值，且当前仍然低于阈值，启动倒计时
             // 注意：需要用 currentLux 再次确认，避免冷却期间仅瞬间低值就触发重新锁定
-            if (lightBelowThresholdDuringCooldown && currentLux < currentThreshold) {
+            if (lightBelowThresholdDuringCooldown && currentLux <= currentThreshold) {
                 AppLog.stateMachine("[COOLDOWN] 冷却期间光线低于阈值且当前仍不足 (${currentLux}lux < ${currentThreshold}lux)，启动锁定倒计时")
                 // 立即启动锁定倒计时（到期时再次检查）
                 lockRunnable = Runnable {
                     lockRunnable = null
-                    if (currentLux < currentThreshold) {
+                    if (currentLux <= currentThreshold) {
                         AppLog.stateMachine("[COOLDOWN] 锁屏倒计时结束，光线仍不足，执行锁定")
                         performLock()
                     } else {
@@ -944,6 +849,9 @@ class LightMonitorService : Service(), SensorEventListener {
      * 检查锁定状态（无防抖，用于阈值更新等场景）
      */
     private fun checkLockState() {
+        // 每次检查前重新读取阈值，确保用户实时调整生效
+        reloadThreshold()
+
         // 未收到首次传感器数据前，不执行锁定判断
         if (!hasSensorData) {
             AppLog.d(TAG, "等待首次传感器数据，跳过锁定检查")
@@ -957,14 +865,10 @@ class LightMonitorService : Service(), SensorEventListener {
         }
 
         // 通话中或电话应用在前台时，不锁定也不解锁，保持当前状态
+        // 电话标记由无障碍服务管理，不在此处检查超时
         if (isInCall || LockOverlayService.isPhoneAppActive) {
-            // 检查电话应用标记是否已超时（兜底）
-            LockOverlayService.checkPhoneAppTimeout()
-            if (isInCall || LockOverlayService.isPhoneAppActive) {
-                AppLog.d(TAG, "通话中或电话应用活跃，跳过锁定检查 (isLocked=$isLocked)")
-                return
-            }
-            AppLog.d(TAG, "电话应用标记超时，恢复锁定检查")
+            AppLog.d(TAG, "通话中或电话应用活跃，跳过锁定检查 (isLocked=$isLocked)")
+            return
         }
 
         // 定时调度检查：不在时间段内则暂停监测并安排唤醒
@@ -976,10 +880,10 @@ class LightMonitorService : Service(), SensorEventListener {
             return
         }
 
-        if (currentLux < currentThreshold && !isLocked) {
+        if (currentLux <= currentThreshold && !isLocked) {
             // 光线不足，需要锁定
             lockDevice()
-        } else if (currentLux >= currentThreshold && isLocked) {
+        } else if (currentLux > currentThreshold && isLocked) {
             // 光线恢复，解除锁定
             unlockDevice()
         }
@@ -1123,9 +1027,6 @@ class LightMonitorService : Service(), SensorEventListener {
     fun triggerRecheck() {
         AppLog.d(TAG, "收到外部触发，重新加载定时缓存并检查锁定状态")
         reloadScheduleCache()
-        // 先调整监测状态（可能暂停监测或恢复监测）
-        if (applySchedule()) {
-            checkLockState()
-        }
+        recheckAfterScheduleChange()
     }
 }
