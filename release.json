@@ -1,6 +1,0 @@
-{
-  "tag_name": "v1.1.2",
-  "name": "v1.1.2",
-  "body": "## v1.1.2 更新内容\n\n### 新功能\n- EMA 平滑滤波（α=0.7），滤除传感器瞬时波动\n- 定时启用（设置页），支持跨天时间段\n- 传感器诊断面板 + 状态标题栏显示\n- 锁屏语音播报临时调大音量\n- 文件日志系统（按天轮转，保留7天）\n\n### 优化\n- 倒计时到期重新检查光线，避免误触发\n- ACTION_USER_PRESENT 无条件恢复传感器\n- 冷却退出时重新检查当前亮度\n- 防抖开关移至设置页\n- 定时范围外自动暂停监测（释放 WakeLock），省电\n- 整体 UI 现代化（Slate/Rose 配色，增大字体适配老年人）\n- 无障碍服务通知超时 500ms，降低系统负载\n- 传感器日志文件写入节流（每4次写1次）\n- 移除 5 个未使用 drawable，清理死资源\n- 抽取 30+ 硬编码字符串到 strings.xml\n- 定时缓存到内存变量，减少 SharedPreferences 读取\n- 通知 Builder 缓存，减少重复构建\n- 低内存时释放遮罩层 View 缓存\n\n### Bug 修复\n- 修复 SettingsActivity 服务连接泄漏\n- 修复定时设置变更被静默忽略\n- 修复广播接收器重复注册崩溃\n- 修复 WakeLock 泄漏\n- 修复 LockOverlayService 未取消手电筒回调\n- 修复 READ_PHONE_STATE 权限过大（已移除）\n- 修复 allowBackup 数据泄露风险\n- 修复 LockAccessibilityService 子串匹配误触发\n- 修复音量调高后服务被杀死无法恢复\n- 修复主题 Material 2 属性在 M3 下无效\n- 修复 Button.Primary 缺少 parent 样式\n- 修复通知标题为空字符串",
-  "draft": false
-}
