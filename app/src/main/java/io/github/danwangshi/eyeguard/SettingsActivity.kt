@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.view.LayoutInflater
@@ -116,6 +117,14 @@ class SettingsActivity : AppCompatActivity() {
             AppLog.d(TAG, "点击：关于")
             showAboutDialog()
         }
+
+        // 动态设置版本号（从 PackageManager 获取）
+        try {
+            val info = packageManager.getPackageInfo(packageName, 0)
+            val verName = info.versionName ?: "1.3.1"
+            findViewById<android.widget.TextView>(R.id.tv_app_version)?.text =
+                getString(R.string.app_version, verName)
+        } catch (_: Exception) { }
     }
 
     private fun loadScheduleSettings() {
@@ -233,8 +242,20 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun buildAboutContent(): String {
+        val versionName = try {
+            packageManager.getPackageInfo(packageName, 0).versionName ?: "1.3.1"
+        } catch (e: Exception) { "1.3.1" }
+        val versionCode = try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                packageManager.getPackageInfo(packageName, 0).longVersionCode.toString()
+            } else {
+                @Suppress("DEPRECATION")
+                packageManager.getPackageInfo(packageName, 0).versionCode.toString()
+            }
+        } catch (e: Exception) { "?" }
+
         return """
-应用版本：1.3.0 (Build 5)
+应用版本：$versionName (Build $versionCode)
 开发者：danwangshimoluo
 开源协议：MIT License
 
