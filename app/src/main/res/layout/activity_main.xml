@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- 权限引导界面 -->
+    <LinearLayout
+        android:id="@+id/layout_permissions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/permission_welcome"
+            android:textColor="@color/primary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/permission_intro"
+            android:textColor="@color/text_secondary"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- 悬浮窗 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_overlay_check"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@android:drawable/checkbox_off_background" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="@string/permission_overlay_label"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn_grant_overlay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="去开启"
+                        android:textSize="16sp"
+                        android:minHeight="0dp"
+                        style="@style/Widget.EyeGuard.Button" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="14dp"
+                    android:background="@color/divider" />
+
+                <!-- 无障碍 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_accessibility_check"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@android:drawable/checkbox_off_background" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="@string/permission_accessibility_label"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn_grant_accessibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="去开启"
+                        android:textSize="16sp"
+                        android:minHeight="0dp"
+                        style="@style/Widget.EyeGuard.Button" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:enabled="false"
+            android:text="@string/permission_all_ready"
+            android:textSize="18sp"
+            style="@style/Widget.EyeGuard.Button" />
+
+    </LinearLayout>
+
+    <!-- 主界面 -->
+    <ScrollView
+        android:id="@+id/layout_main_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 阈值 + 亮度 + 传感器诊断 合并卡片 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- 标题行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/main_threshold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/threshold_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="18sp" />
+
+                    <!-- 阈值数值 + 滑块 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_threshold_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:text="100"
+                            android:textColor="@color/accent"
+                            android:textSize="32sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="lux"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/tap_to_input"
+                            android:textColor="@color/text_gray"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekbar_threshold"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp"
+                        android:max="500"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/progress_lux"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/threshold_reference"
+                        android:textColor="@color/text_gray"
+                        android:textSize="15sp" />
+
+                    <!-- 分割线 -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@color/divider" />
+
+                    <!-- 当前亮度 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="当前亮度"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/tv_realtime_lux"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="--"
+                            android:textColor="@color/text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="lux"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <!-- 传感器诊断（折叠式简洁显示） -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sensor_raw"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_raw_lux"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="--"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="@string/sensor_smoothed"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_smoothed_lux"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="--"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <!-- 诊断提示 -->
+                    <TextView
+                        android:id="@+id/tv_diagnostic_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/warning_bg"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/sensor_hint_blocked"
+                        android:textColor="@color/warning_text"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- 提示 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/main_hint"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- 右上角设置按钮 -->
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_gravity="top|end"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_manage"
+        android:contentDescription="设置"
+        android:scaleType="center"
+        android:tint="@color/text_secondary" />
+
+</FrameLayout>

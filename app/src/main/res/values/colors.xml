@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主色调（现代 slate 蓝） -->
+    <color name="primary">#1E293B</color>
+    <color name="primary_dark">#0F172A</color>
+    <color name="accent">#F43F5E</color>
+
+    <!-- 背景色 -->
+    <color name="background">#F8FAFC</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- 文字色 -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_gray">#94A3B8</color>
+
+    <!-- 锁定界面 -->
+    <color name="lock_background">#CC000000</color>
+    <color name="lock_card_background">#FF1E293B</color>
+    <color name="lock_text">#CBD5E1</color>
+
+    <!-- 按钮色 -->
+    <color name="button_primary">#1E293B</color>
+    <color name="button_danger">#EF4444</color>
+    <color name="button_success">#10B981</color>
+    <color name="button_white">#FFFFFF</color>
+
+    <!-- 状态色 -->
+    <color name="status_running">#10B981</color>
+    <color name="status_stopped">#94A3B8</color>
+    <color name="status_locked">#EF4444</color>
+
+    <!-- 进度条 -->
+    <color name="progress_background">#475569</color>
+    <color name="progress_fill">#60A5FA</color>
+
+    <!-- 传感器诊断 -->
+    <color name="sensor_ok">#10B981</color>
+    <color name="sensor_warning">#F59E0B</color>
+    <color name="sensor_blocked">#EF4444</color>
+
+    <!-- 通用 -->
+    <color name="divider">#E2E8F0</color>
+    <color name="warning_bg">#FEF3C7</color>
+    <color name="warning_text">#92400E</color>
+</resources>

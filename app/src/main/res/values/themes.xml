@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用主题 -->
+    <style name="Theme.EyeGuard" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorPrimaryContainer">#E2E8F0</item>
+        <item name="colorOnPrimaryContainer">@color/primary_dark</item>
+        <item name="colorError">@color/accent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- 按钮 -->
+    <style name="Widget.EyeGuard.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- 主操作按钮（运行/停止） -->
+    <style name="Widget.EyeGuard.Button.Primary" parent="Widget.EyeGuard.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
+
+    <!-- 卡片 -->
+    <style name="Widget.EyeGuard.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+
+    <!-- 列表项卡片（点击跳转） -->
+    <style name="Widget.EyeGuard.Card.ListItem" parent="Widget.EyeGuard.Card">
+        <item name="cardElevation">0.5dp</item>
+    </style>
+
+    <!-- 锁定界面动画 -->
+    <style name="LockAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+</resources>
